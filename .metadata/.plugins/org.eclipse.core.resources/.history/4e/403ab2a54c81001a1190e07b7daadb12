@@ -1,0 +1,30 @@
+package com.js.wcafeWeb.dto;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+public class Product {
+	private int id;
+	private String name;
+	private Boolean validate;
+	private int price;
+	private int seconds;
+	private int categoryId;
+	private int List<Option> options;
+	
+	@Builder
+	public Product(String name, int price, int seconds, int categoryId) {
+		this.name=name;
+		this.price=price;
+		this.seconds=seconds;
+		this.categoryId=categoryId;
+	}
+	
+	@Override
+	public String toString(){
+	    return new com.google.gson.Gson().toJson(this);
+	}
+}

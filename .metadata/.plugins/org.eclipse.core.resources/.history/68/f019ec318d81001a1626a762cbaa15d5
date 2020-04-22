@@ -1,0 +1,46 @@
+a{
+	cursor: pointer;
+}
+
+.seconds{
+	font-size: 1.5rem;
+	font-weight:550;
+}
+
+
+
+.waitingInfo{
+	font-size: 1.2rem;
+	color: #666;
+}
+
+.waitingInfo svg{
+	font-size: 1.3rem;
+	margin: 0px 0px 0px 10px
+}
+
+.waitingInfo .info{
+	font-size: 1.4rem;
+	
+	color: #333;
+}
+
+
+.navbar-dark .nav-link{
+	color: #fff;
+	font-weight: 700;
+}
+
+.navbar-dark .nav-link:hover{
+	color: #ffffff80;
+}
+
+.typefontICE{
+	color: #007bff;
+	font-size: 1rem;
+}
+
+.typefontHOT{
+	color: #dc3545;
+	font-size: 1rem;
+}

@@ -1,0 +1,27 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: wcafe-api-gateway
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: asdf1234
+    url: jdbc:mysql://localhost:3306/user?useSSL=false&serverTimezone=UTC
+    username: root
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    wcafe-web:
+      path: /**
+    wcafe-order:
+      path: /api/order/**
+    wcafe-product:
+      path: /api/product/**
+    wcafe-user:
+      path: /api/user/**

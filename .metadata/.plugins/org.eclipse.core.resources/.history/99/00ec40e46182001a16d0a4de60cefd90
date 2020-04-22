@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.js.wcafeUser.dao.AccountMapper">
+
+	<select id="readAllUsers" resultType="Account">
+		SELECT* FROM USER
+	</select>
+	<select id="readAccount" parameterType="String" resultType="Account">
+		SELECT * FROM USER WHERE id=#{id}
+	</select>
+	<select id="readAuthorities" parameterType="String" resultType="String">
+		select authorityId from userauthority where userId=#{id}
+	</select>
+	
+	<select id="isAuthorityExist" parameterType="String" resultType="int">
+		SELECT count(*) FROM AUTHORITY WHERE name=#{authority}
+	</select>	
+	
+	<insert id="insertUser" parameterType="Account">
+		INSERT INTO USER(id, password, name) VALUES(#{account.id},#{account.password},#{account.name})
+	</insert>
+	<insert id="insertAuthority" parameterType="String">INSERT INTO AUTHORITY VALUES(#{authority})</insert>
+	<insert id="insertUserAuthority">INSERT INTO USERAUTHORITIES(userId, authorityId) VALUES(#{id},#{authority})</insert>
+	
+</mapper>

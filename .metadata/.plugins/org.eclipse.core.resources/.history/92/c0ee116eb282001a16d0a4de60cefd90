@@ -1,0 +1,34 @@
+var update = {
+	
+		init : function () {
+			var _this = this;
+			
+			$('.completed').click(function () {
+				_this.updateStatus(this);
+			});
+			
+		},
+		
+		updateStatus : function (_this) {
+			var orderId = $(_this).val();
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");			
+			
+			$.ajax({
+				type: 'PUT',
+				url: '/api/v1/orders/'+orderId,
+				beforeSend : function(xhr){ xhr.setRequestHeader(header, token);},
+				dataType:'json',
+				contentType: 'application/json; charset=utf-8',
+				
+			}).done(function() {
+				alert('dma.');
+				window.location.href="/admin/management";
+			}).fail(function (error) {
+				alert(error.responseText);
+			});
+		}
+
+}
+
+update.init();

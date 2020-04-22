@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+C:\Users\kth\IdeaProjects\term-project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1755401707.index
+3458151521.index
+415907096.index
+1010436011.index
+319383155.index
+1686437371.index
+3054586909.index
+3825648031.index
+2471540899.index

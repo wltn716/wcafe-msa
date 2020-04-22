@@ -1,0 +1,9 @@
+application: ''
+cloud: ''
+config: ''
+git: ''
+name: wcafe-config-server
+port: 8888
+server: ''
+spring: ''
+uri: https://github.com/architectstory/msa.git

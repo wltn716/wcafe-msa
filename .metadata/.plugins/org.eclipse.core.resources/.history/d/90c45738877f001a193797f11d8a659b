@@ -1,0 +1,5 @@
+package com.js.wcafeProduct.config;
+
+public class MyBatisConfig {
+
+}

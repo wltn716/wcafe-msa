@@ -1,0 +1,5 @@
+package com.js.wcafeWeb.config;
+
+public class ProductClientConfig {
+
+}

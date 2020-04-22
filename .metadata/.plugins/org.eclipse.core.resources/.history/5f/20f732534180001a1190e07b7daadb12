@@ -1,0 +1,38 @@
+<div class="mb-4">
+	<h1><font class="username">{{currentUser.name}}</font>¥‘</h1>
+	<h1>æ»≥Á«œººø‰!</h1>
+</div>
+<div class="d-flex waitingInfo mb-5" id="timeQuantity">
+	<div class="mr-3">¥Î±‚Ω√∞£/¿‹ºˆ</div>
+	<div class="info">
+		<span class="seconds">{{waitingTime.time}}√ </span> / {{waitingTime.quantity}}¿‹
+		<span id="refresh"><i class="fas fa-sync"></i></span>
+	</div>
+</div>
+<hr/>
+<div class="recentOrder" id="notServed">
+	<strong>¡¶¡∂¡ﬂ...</strong>
+	{{#myRecentOrders}}
+		{{#validate}}
+		<div class="p-2">
+			{{#details}}
+				{{product.name}}&nbsp;{{quantity}}¿‹<br/>
+			{{/details}}
+		</div>
+		{{/validate}}
+	{{/myRecentOrders}}
+</div>
+<hr/>
+<div class="servedRecentOrder" id="served">
+	<strong>¡¶¡∂øœ∑·</strong>
+	{{#myRecentOrders}}
+		{{^validate}}
+		<div class="p-2">
+			{{#details}}
+				{{product.name}}&nbsp;{{quantity}}¿‹<br/>
+			{{/details}}
+		</div>
+		{{/validate}}
+	{{/myRecentOrders}}
+</div>
+<hr/>

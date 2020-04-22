@@ -1,0 +1,27 @@
+package com.js.wcafeWeb.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+import com.js.wcafeWeb.config.OrderClientConfig;
+
+@FeignClient(name = "Order", url = "http://localhost:8090/order",configuration=OrderClientConfig.class)
+public interface OrderClient {
+	@RequestMapping(method = RequestMethod.GET, value = "/user")
+    List<User> getAllUsers();
+
+    @RequestMapping(method = RequestMethod.GET, value = "/user/{id}")
+    User getUser(@PathVariable("id") int id);
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/user/{id}")
+    ResponseEntity deleteUser(@PathVariable("id") int id);
+
+    @RequestMapping(method = RequestMethod.POST, value = "/user/")
+    ResponseEntity addUser(@RequestBody User user);
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/user/")
+    ResponseEntity updateUser(User user);
+
+}
+
+//@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+//@GetMapping("/get/{id}")

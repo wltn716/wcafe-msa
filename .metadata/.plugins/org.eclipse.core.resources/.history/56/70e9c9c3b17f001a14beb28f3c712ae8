@@ -1,0 +1,10 @@
+package com.js.wcafeWeb.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+import com.js.wcafeWeb.config.OrderClientConfig;
+
+@FeignClient(name = "Order", url = "http://localhost:8090/order",configuration=OrderClientConfig.class)
+public interface OrderClient {
+
+}

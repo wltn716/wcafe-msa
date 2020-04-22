@@ -1,0 +1,60 @@
+package com.js.wcafe.mapper;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.js.wcafe.dao.OrderMapper;
+import com.js.wcafe.dao.ProductMapper;
+import com.js.wcafe.dto.Order;
+import com.js.wcafe.dto.Orderdetail;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class OrderMapperTest {
+	
+	@Autowired
+	OrderMapper orderMapper;
+	
+	@Autowired
+	private ProductMapper productMapper;
+	
+	@Test
+	public void 주문등록_후_불러오기() {
+		String name="user";
+		Orderdetail[] details = new Orderdetail[2];
+		details[0] = Orderdetail.builder()
+				.whip(false)
+				.shot(2)
+				.quantity(2)
+				.product(productMapper.readProduct(1))
+				.build();
+		details[1] = Orderdetail.builder()
+				.whip(false)
+				.shot(1)
+				.quantity(3)
+				.product(productMapper.readProduct(2))
+				.build();
+		
+		orderMapper.insertOrder(Order.builder()
+				.userId(name)
+				.detail(details[0])
+				.detail(details[1])
+				.build());
+		
+		List<Order> orderList= orderMapper.readAll();
+		
+		Order order = orderList.get(-1);
+		System.out.println(order);
+		assertThat(order.getUserId()).isEqualTo("user");
+		
+	}
+
+}

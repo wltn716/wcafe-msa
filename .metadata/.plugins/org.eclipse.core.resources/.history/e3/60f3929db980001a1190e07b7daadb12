@@ -1,0 +1,34 @@
+package com.js.wcafeOrder.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import com.js.wcafeOrder.dto.Order;
+import com.js.wcafeOrder.dto.Detail;
+import com.js.wcafeOrder.dto.Option;
+
+
+
+@Repository
+@Mapper
+public interface OrderMapper {
+	
+	/*get order info*/
+	Order readOrder(int id);
+	List<Order> readAll();
+	List<Order> notServedYet();
+	
+	/*create new order*/
+	void insertOrder(@Param("order") Order order); //insert into order(userId) values(#{userId})
+	void insertDetail(@Param("detail") Detail detail, @Param("orderId") int orderId); //insert into orderdetail(#{detail.whip},#{shot},#{quantity},#{price},#{orderId},#{productId})
+	void insertDetailOption(@Param("detailId"), @Param("optionId") int optionId);
+	
+	/*complete order -> setValidate(false)*/
+	void setVaildate(int id);
+	
+}
+
+

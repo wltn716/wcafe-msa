@@ -1,0 +1,17 @@
+debug: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+server:
+  port: 8005
+spring:
+
+  application:
+    name: wcafe-order
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: asdf1234
+    url: jdbc:mysql://localhost:3306/cafesys?useSSL=false&serverTimezone=UTC
+    username: root
