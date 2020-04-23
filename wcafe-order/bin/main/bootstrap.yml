@@ -1,0 +1,15 @@
+server:
+  port: 8005
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: wcafe-order
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["env", "refresh"]

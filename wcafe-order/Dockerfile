@@ -16,4 +16,7 @@ ARG JAR_FILE=build/libs/wcafe-order-0.0.1-SNAPSHOT.jar
 ADD ${JAR_FILE} to-order.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/to-order.jar"]
+#ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/to-order.jar"]
+
+
+CMD exec java $JAVA_OPTS -jar /to-order.jar
