@@ -2,10 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - WcafeProductApplication",
+            "request": "launch",
+            "mainClass": "com.js.wcafeProduct.WcafeProductApplication",
+            "projectName": "wcafe-product",
+            "vmArgs": "-Dspring.profiles.active=dev -Dconfig.server=http://211.62.49.103:8888/"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - WcafeApiGatewayApplication",
+            "request": "launch",
+            "mainClass": "com.js.wcafeApiGateway.WcafeApiGatewayApplication",
+            "projectName": "wcafe-api-gateway",
+            "vmArgs": "-Dspring.profiles.active=dev -Dconfig.server=http://211.62.49.103:8888/ "
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - WcafeOrderApplication",
             "request": "launch",
             "mainClass": "com.js.wcafeOrder.WcafeOrderApplication",
-            "projectName": "wcafe-order"
+            "projectName": "wcafe-order",
+            "vmArgs": "-Dspring.profiles.active=dev -Dconfig.server=http://211.62.49.103:8888/ "
         },
         {
             "type": "java",
@@ -15,6 +32,16 @@
             "console": "internalConsole",
             "mainClass": "com.js.wcafeConfigServer.WcafeConfigServerApplication",
             "projectName": "wcafe-config-server",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - WcafeEurekaServerApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.js.wcafeEurekaServer.WcafeEurekaServerApplication",
+            "projectName": "wcafe-eureka-server",
             "args": ""
         }
     ]

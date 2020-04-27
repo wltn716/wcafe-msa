@@ -4,52 +4,77 @@ services:
     image: 'to-eureka-server'
     ports:
       - '8761:8761'
-    environment:
-      - EUREKA_SERVER_NAME=eureka-server
-      - PORT=8761
+    restart: on-failure
       
   order:
     image: 'to-order'
     ports:
       - '8005:8005'
+    restart: on-failure
     environment:
-      - EUREKA_SERVER_NAME=eureka-server
-      - EUREKA_SERVER_PORT=8761
-      - PORT=8005
-    links:
-      - eureka-server
+      - java.security.egd=file:/dev/./urandom
+      - file.encoding=UTF8
+      - client.encoding.override=UTF-8
+      - user.timezone=GMT+09:00
+      - sun.java2d.opengl=false 
+      - java.awt.headless=true
+      - java.net.preferIPv4Stack=true
+      - hostname=211.62.49.103
+      - mysql.connection.uri=jdbc:mysql://211.62.49.103:3306/order?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - spring.profiles.active=dev
+      - config.server=http://211.62.49.103:8888
+
       
   product:
     image: 'to-product'
     ports:
       - '8010:8010'
+    restart: on-failure
     environment:
-      - EUREKA_SERVER_NAME=eureka-server
-      - EUREKA_SERVER_PORT=8761
-      - PORT=8010
-    links:
-      - eureka-server 
+      - java.security.egd=file:/dev/./urandom
+      - file.encoding=UTF8
+      - client.encoding.override=UTF-8
+      - user.timezone=GMT+09:00
+      - sun.java2d.opengl=false 
+      - java.awt.headless=true
+      - java.net.preferIPv4Stack=true
+      - hostname=211.62.49.103
+      - mysql.connection.uri=jdbc:mysql://211.62.49.103:3306/product?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - spring.profiles.active=dev
+      - config.server=http://211.62.49.103:8888
 
   web:
     image: 'to-web'
     ports:
       - '8080:8080'
+    restart: on-failure
     environment:
-      - EUREKA_SERVER_NAME=eureka-server
-      - EUREKA_SERVER_PORT=8761
-      - PORT=8080
-    links:
-      - eureka-server 
+      - java.security.egd=file:/dev/./urandom
+      - file.encoding=UTF8
+      - client.encoding.override=UTF-8
+      - user.timezone=GMT+09:00
+      - sun.java2d.opengl=false 
+      - java.awt.headless=true
+      - java.net.preferIPv4Stack=true
+      - hostname=211.62.49.103
+      - spring.profiles.active=dev
+      - config.server=http://211.62.49.103:8888
+      - api.gateway.host=211.62.49.103
       
   zuul-api-gateway:
     image: 'to-api-gateway'
     ports:
       - '8090:8090'
+    restart: on-failure
     environment:
-      - EUREKA_SERVER_NAME=eureka-server
-      - EUREKA_SERVER_PORT=8761
-      - PORT=8090
-    links:
-      - eureka-server
-      - order
-      - product
+      - java.security.egd=file:/dev/./urandom
+      - file.encoding=UTF8
+      - client.encoding.override=UTF-8
+      - user.timezone=GMT+09:00
+      - sun.java2d.opengl=false 
+      - java.awt.headless=true
+      - java.net.preferIPv4Stack=true
+      - hostname=211.62.49.103
+      - mysql.connection.uri=jdbc:mysql://211.62.49.103:3306/user?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - spring.profiles.active=dev
+      - config.server=http://211.62.49.103:8888

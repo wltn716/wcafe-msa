@@ -1,0 +1,14 @@
+server:
+  port: 8080 
+
+spring:
+  profiles: dev
+  application:
+    name: wcafe-web
+  mustache:
+    suffix: .html
+  cloud:
+    config:
+      uri: '${config.server:http://localhost:8888/}'
+      name: eureka-config, feign-config
+

@@ -53,7 +53,7 @@ public class HomeController {
 	
 	@GetMapping("/admin/management")
 	public ModelAndView admin(ModelAndView mv) {
-		mv.setViewName("/admin");
+		mv.setViewName("admin");
 		List<Order> orders = orderClient.getNotServedYet();
 		for(Order order : orders) {
 			for(Detail detail : order.getDetails()) {

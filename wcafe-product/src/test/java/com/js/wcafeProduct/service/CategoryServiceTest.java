@@ -14,20 +14,20 @@ import com.js.wcafeProduct.dto.Category;
 
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+// @RunWith(SpringRunner.class)
+// @SpringBootTest
 public class CategoryServiceTest {
 
 	
-	@Autowired
-	CategoryService categoryService;
+	// @Autowired
+	// CategoryService categoryService;
 	
-	@Test
-	public void 카테고리_불러오기() {
-		List<Category> categories = categoryService.all();
-		System.out.println(categories);
-		assertThat(categories.size()).isEqualTo(5);
+	// @Test
+	// public void 카테고리_불러오기() {
+	// 	List<Category> categories = categoryService.all();
+	// 	System.out.println(categories);
+	// 	assertThat(categories.size()).isEqualTo(5);
 		
-	}
+	// }
 	
 }

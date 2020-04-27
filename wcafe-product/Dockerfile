@@ -1,3 +1,4 @@
+#docker run -e JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF8 -Dclient.encoding.override=UTF-8 -Duser.timezone=GMT+09:00 -Dsun.java2d.opengl=false -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dhostname=211.62.49.103 -Dmysql.connection.uri=jdbc:mysql://211.62.49.103:3306/product?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true -Dspring.profiles.active=dev -Dconfig.server=http://211.62.49.103:8888" -p 8010:8010 -i -t -d to-product:latest
 FROM openjdk:8-jdk
 
 # Add Author info
@@ -16,4 +17,5 @@ ARG JAR_FILE=build/libs/wcafe-product-0.0.1-SNAPSHOT.jar
 ADD ${JAR_FILE} to-product.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/to-product.jar"]
+# ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/to-product.jar"]
+CMD exec java $JAVA_OPTS -jar /to-product.jar

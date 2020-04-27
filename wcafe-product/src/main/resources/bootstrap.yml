@@ -1,0 +1,13 @@
+server:
+  port: 8010
+
+spring:
+  profiles: dev
+  application:
+    name: wcafe-product
+  cloud:
+    config:
+      uri: '${config.server:http://localhost:8888/}'
+      name: common-config, eureka-config
+  
+

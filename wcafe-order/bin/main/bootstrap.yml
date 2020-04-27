@@ -2,14 +2,24 @@ server:
   port: 8005
 
 spring:
-  profiles:
-    active: dev
+  profiles: dev
   application:
     name: wcafe-order
+  cloud:
+    config:
+      uri: '${config.server:http://localhost:8888/}'
+      #http://211.62.49.103:8888/'
+      # username: ${config.server.username:admin}
+      # password: ${config.server.password:admin1234}
+      name: common-config, eureka-config
 
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: ["env", "refresh"]
+
+# bootstrap.yml is loaded before application.yml.
+
+# It is typically used for the following:
+
+# when using Spring Cloud Config Server, you should specify spring.application.name and spring.cloud.config.server.git.uri inside bootstrap.yml
+# some encryption/decryption information
+
+# Technically, bootstrap.yml is loaded by a parent Spring ApplicationContext. That parent ApplicationContext is loaded before the one that uses application.yml.

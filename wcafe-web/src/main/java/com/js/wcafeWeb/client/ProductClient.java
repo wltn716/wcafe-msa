@@ -10,7 +10,7 @@ import com.js.wcafeWeb.config.ClientConfig;
 import com.js.wcafeWeb.dto.Category;
 import com.js.wcafeWeb.dto.Product;
 
-@FeignClient(name = "Product", url = "http://localhost:8090/api/product",configuration=ClientConfig.class)
+@FeignClient(name = "Product", url = "${feign.product-api.url}", configuration=ClientConfig.class)
 public interface ProductClient {
 	
 	@GetMapping("/v1")

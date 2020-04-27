@@ -1,0 +1,13 @@
+server:
+  port: 8090
+
+spring:
+  profiles: dev
+  application:
+    name: wcafe-api-gateway
+  cloud:
+    config:
+      uri: '${config.server:http://localhost:8888/}'
+      name: common-config, eureka-config, zuul-config
+
+debug: true

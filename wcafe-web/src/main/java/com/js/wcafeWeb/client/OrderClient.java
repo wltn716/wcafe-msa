@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.js.wcafeWeb.config.ClientConfig;
 import com.js.wcafeWeb.dto.Order;
 
-@FeignClient(name = "Order", url = "http://localhost:8090/api/order",configuration=ClientConfig.class)
+@FeignClient(name = "Order", url = "${feign.order-api.url}",configuration=ClientConfig.class)
 public interface OrderClient {
 
 	//@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
