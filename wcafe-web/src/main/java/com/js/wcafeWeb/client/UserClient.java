@@ -6,7 +6,7 @@ import com.js.wcafeWeb.dto.Account;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = "Account", url = "/", configuration = ClientConfig.class)
+@FeignClient(name = "Account", url = "${feign.user-api.url}", configuration = ClientConfig.class)
 public interface UserClient {
 
     @GetMapping("/v1")
