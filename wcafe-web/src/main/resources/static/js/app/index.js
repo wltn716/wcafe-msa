@@ -49,7 +49,7 @@ var action = {
 				
 			}).done(function() {
 				alert('주문이 완료되었습니다.');
-				window.location.href="/";
+				window.location.href="/web/";
 			}).fail(function (error) {
 				alert(JSON.stringify(error));
 			});
