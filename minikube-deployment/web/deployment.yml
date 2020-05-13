@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  minReadySeconds: 30
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: wltn716/to-web
+        env:
+        - name: EUREKA_CLUSTER_SERVICES
+          valueFrom:
+            configMapKeyRef:
+              name: eureka-cluster-config
+              key: eureka_cluster_services
+        - name: HTTPD_PORT
+          value: "8080"
+        - name: JAVA_OPTS
+          value: "-Dspring.profiles.active=dev -Dconfig.server=http://config:8888 -Dapi.gateway.host=zuul -Dservice.name=web"
+        resources:
+          requests:
+            cpu: "150m"
+            memory: "128Mi"
+        imagePullPolicy: Always # IfNotPresent
+        ports:
+        - containerPort: 8080
+        # livenessProbe:
+        #   httpGet:
+        #     path: /actuator/health
+        #     port: 8080
+        #   initialDelaySeconds: 30
+        #   timeoutSeconds: 5
+        # readinessProbe:
+        #   httpGet:
+        #     path: /actuator/health
+        #     port: 8080
+        #   initialDelaySeconds: 30
+        #   timeoutSeconds: 5

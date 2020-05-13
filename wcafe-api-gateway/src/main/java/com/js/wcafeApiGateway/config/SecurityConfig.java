@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         	.httpBasic().disable()
         	.csrf().disable()
             .authorizeRequests() //각 경로에 따른 권한지정
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/web/admin/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT,"/api/order/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/api/product/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT,"/api/product/**").hasRole("ADMIN")

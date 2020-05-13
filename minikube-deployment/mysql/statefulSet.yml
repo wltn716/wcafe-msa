@@ -27,3 +27,6 @@ spec:
             memory: "256Mi"
         ports:
         - containerPort: 3306
+
+# mysql 호스트네임 확인 명령어 : hostname -A
+# 접속 명령어 : mysql -h mysql-0.mysql.default.svc.cluster.local -u root -p

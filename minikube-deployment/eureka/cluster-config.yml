@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: eureka-cluster-config
-data:
-  eureka_cluster_services: http://211.62.49.103:8761/eureka,http://211.62.49.103:8761/eureka

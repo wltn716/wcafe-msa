@@ -9,5 +9,3 @@ spring:
     config:
       uri: '${config.server:http://localhost:8888/}'
       name: common-config, eureka-config, zuul-config
-
-debug: true

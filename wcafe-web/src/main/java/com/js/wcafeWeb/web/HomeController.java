@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.js.wcafeWeb.client.OrderClient;
 import com.js.wcafeWeb.client.ProductClient;
+import com.js.wcafeWeb.client.UserClient;
 import com.js.wcafeWeb.dto.Detail;
 import com.js.wcafeWeb.dto.Order;
 import com.js.wcafeWeb.dto.Product;
@@ -22,10 +23,14 @@ public class HomeController {
 	
 	@Autowired
 	private ProductClient productClient;
+
+	@Autowired
+	private UserClient userClient;
 	
 	@GetMapping("/")
     public ModelAndView index(ModelAndView mv) {
 		mv.setViewName("index");
+		mv.addObject("currentUser", userClient.currentUser());
 		mv.addObject("categories", productClient.getMenu());
 		
 		int waitingBevN=0, waitingTime=0;

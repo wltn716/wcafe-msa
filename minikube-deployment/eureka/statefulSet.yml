@@ -4,7 +4,7 @@ metadata:
   name: eureka
 spec:
   serviceName: eureka
-  replicas: 2
+  replicas: 1
   minReadySeconds: 30
   selector:
     matchLabels:
@@ -30,8 +30,8 @@ spec:
           value: "-Dspring.profiles.active=dev"
         resources:
           requests:
-            cpu: "200m"
-            memory: "256Mi"
+            cpu: "150m"
+            memory: "128Mi"
         ports:
         - containerPort: 8761
         livenessProbe:

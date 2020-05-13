@@ -4,23 +4,23 @@
 <mapper namespace="com.js.wcafeApiGateway.dao.AccountMapper">
 
 	<select id="readAllUsers" resultType="Account">
-		SELECT* FROM USER
+		SELECT * FROM user
 	</select>
 	<select id="readAccount" parameterType="String" resultType="Account">
-		SELECT * FROM USER WHERE id=#{id}
+		SELECT * FROM user WHERE id=#{id}
 	</select>
 	<select id="readAuthorities" parameterType="String" resultType="String">
 		select authorityId from userauthority where userId=#{id}
 	</select>
 	
 	<select id="isAuthorityExist" parameterType="String" resultType="int">
-		SELECT count(*) FROM AUTHORITY WHERE name=#{authority}
+		SELECT count(*) FROM authority WHERE name=#{authority}
 	</select>	
 	
 	<insert id="insertUser" parameterType="Account">
-		INSERT INTO USER(id, password, name) VALUES(#{account.id},#{account.password},#{account.name})
+		INSERT INTO user(id, password, name) VALUES(#{account.id},#{account.password},#{account.name})
 	</insert>
-	<insert id="insertAuthority" parameterType="String">INSERT INTO AUTHORITY VALUES(#{authority})</insert>
+	<insert id="insertAuthority" parameterType="String">INSERT INTO authority VALUES(#{authority})</insert>
 	<insert id="insertUserAuthority">insert into userauthority(userId, authorityId) values(#{id},#{authority})</insert>
 	
 </mapper>
