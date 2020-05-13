@@ -48,8 +48,8 @@ public class OrderController {
 	}
 	
 	@GetMapping("/v1/recent")
-	public List<Order> recent() {
-		return orderService.readRecent();
+	public List<Order> recent(String userId) {
+		return orderService.readRecent(userId);
 	}
 	
 	@PostMapping("/v1")

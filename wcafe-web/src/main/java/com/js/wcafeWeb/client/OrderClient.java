@@ -31,7 +31,7 @@ public interface OrderClient {
     List<Order> getNotServedYet();
     
     @GetMapping("/v1/recent")
-    List<Order> recent();
+    List<Order> recent(String userId);
 
     @PostMapping("/v1")
     ResponseEntity<?> saveOrder(@Valid @RequestBody Order order);

@@ -20,7 +20,7 @@ var update = {
 				
 			}).done(function() {
 				alert('제조가 완료되었습니다.');
-				window.location.href="/web/admin/management";
+				window.location.href="/admin/management";
 			}).fail(function (error) {
 				alert(error.responseText);
 			});

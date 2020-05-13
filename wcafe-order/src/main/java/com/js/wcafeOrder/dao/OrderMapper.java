@@ -20,7 +20,7 @@ public interface OrderMapper {
 	/*get order info*/
 	Order readOrder(int id);
 	List<Order> readAll();
-	List<Order> readRecent(@Param("time") int time, @Param("unit") String unit);
+	List<Order> readRecent(@Param("userId") String userId, @Param("time") int time, @Param("unit") String unit);
 	List<Order> notServedYet();
 	
 	List<Order> readUserOrders(String id);

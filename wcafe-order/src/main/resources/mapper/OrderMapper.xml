@@ -63,7 +63,7 @@
 	</select>	
 	<select id="readRecent" resultMap="orderResultMap">
 		<include refid="selectOrder"/>
-		where createdAt >= NOW() - INTERVAL #{time} ${unit}
+		where userId=#{userId} and createdAt >= NOW() - INTERVAL #{time} ${unit}
 	</select>
 	<select id="notServedYet" parameterType="int" resultMap="orderResultMap">
 		<include refid="selectOrder"/>

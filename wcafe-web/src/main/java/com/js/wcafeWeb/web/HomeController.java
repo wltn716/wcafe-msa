@@ -2,17 +2,18 @@ package com.js.wcafeWeb.web;
 
 import java.util.List;
 
+import com.js.wcafeWeb.client.OrderClient;
+import com.js.wcafeWeb.client.ProductClient;
+import com.js.wcafeWeb.client.UserClient;
+import com.js.wcafeWeb.dto.Account;
+import com.js.wcafeWeb.dto.Detail;
+import com.js.wcafeWeb.dto.Order;
+import com.js.wcafeWeb.dto.Product;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.js.wcafeWeb.client.OrderClient;
-import com.js.wcafeWeb.client.ProductClient;
-import com.js.wcafeWeb.client.UserClient;
-import com.js.wcafeWeb.dto.Detail;
-import com.js.wcafeWeb.dto.Order;
-import com.js.wcafeWeb.dto.Product;
 
 
 @RestController
@@ -30,7 +31,10 @@ public class HomeController {
 	@GetMapping("/")
     public ModelAndView index(ModelAndView mv) {
 		mv.setViewName("index");
-		mv.addObject("currentUser", userClient.currentUser());
+
+		Account currentUser = userClient.currentUser();
+		mv.addObject("currentUser", currentUser);
+
 		mv.addObject("categories", productClient.getMenu());
 		
 		int waitingBevN=0, waitingTime=0;
@@ -43,7 +47,7 @@ public class HomeController {
 			}
 		}
 		
-		List<Order> recent = orderClient.recent();
+		List<Order> recent = orderClient.recent(currentUser.getId());
 		for(Order order : recent) {
 			for(Detail detail : order.getDetails()) {
 				detail.setProduct(productClient.find(detail.getProductId()));

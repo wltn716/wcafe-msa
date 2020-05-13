@@ -40,8 +40,8 @@ public class OrderService {
 	}
 	
 	@Transactional
-	public List<Order> readRecent() {
-		return orderMapper.readRecent(15, "MINUTE");
+	public List<Order> readRecent(String userId) {
+		return orderMapper.readRecent(userId, 15, "MINUTE");
 	}
 	
 	@Transactional
