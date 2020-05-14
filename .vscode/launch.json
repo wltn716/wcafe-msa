@@ -1,12 +1,13 @@
 {
     "configurations": [
+        
         {
             "type": "java",
-            "name": "CodeLens (Launch) - WcafeProductApplication",
+            "name": "CodeLens (Launch) - WcafeOrderApplication",
             "request": "launch",
-            "mainClass": "com.js.wcafeProduct.WcafeProductApplication",
-            "projectName": "wcafe-product",
-            "vmArgs": "-Dspring.profiles.active=dev -Dconfig.server=http://211.62.49.103:8888/"
+            "mainClass": "com.js.wcafeOrder.WcafeOrderApplication",
+            "projectName": "wcafe-order",
+            "vmArgs": "-Ddatabase.name=order"
         },
         {
             "type": "java",
@@ -14,34 +15,26 @@
             "request": "launch",
             "mainClass": "com.js.wcafeApiGateway.WcafeApiGatewayApplication",
             "projectName": "wcafe-api-gateway",
-            "vmArgs": "-Dspring.profiles.active=dev -Dconfig.server=http://211.62.49.103:8888/ "
+            "vmArgs": "-Ddatabase.name=user"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - WcafeOrderApplication",
-            "request": "launch",
-            "mainClass": "com.js.wcafeOrder.WcafeOrderApplication",
-            "projectName": "wcafe-order",
-            "vmArgs": "-Dspring.profiles.active=dev -Dconfig.server=http://211.62.49.103:8888/ "
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-WcafeConfigServerApplication<wcafe-config-server>",
+            "name": "Spring Boot-WcafeProductApplication<wcafe-product>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "mainClass": "com.js.wcafeConfigServer.WcafeConfigServerApplication",
-            "projectName": "wcafe-config-server",
-            "args": ""
+            "mainClass": "com.js.wcafeProduct.WcafeProductApplication",
+            "projectName": "wcafe-product",
+            "vmArgs": "-Ddatabase.name=product"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - WcafeEurekaServerApplication",
+            "name": "CodeLens (Launch) - WcafeWebApplication<wcafe-web>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "mainClass": "com.js.wcafeEurekaServer.WcafeEurekaServerApplication",
-            "projectName": "wcafe-eureka-server",
+            "mainClass": "com.js.wcafeWeb.WcafeWebApplication",
+            "projectName": "wcafe-web",
             "args": ""
         }
     ]

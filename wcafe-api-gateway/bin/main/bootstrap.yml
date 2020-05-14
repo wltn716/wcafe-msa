@@ -2,7 +2,6 @@ server:
   port: 8090
 
 spring:
-  profiles: dev
   application:
     name: wcafe-api-gateway
   cloud:

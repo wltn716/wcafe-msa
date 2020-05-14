@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,33 +27,33 @@ public class OrderController {
 	
 	private final OrderService orderService;
 	
-	@RequestMapping("/")
+	@RequestMapping(value="/")
     public String getOrder() {
 
         return "order Information";
     }
 	
-	@GetMapping("/v1")
+	@GetMapping(value="/v1")
 	public List<Order> All() {
 		return  orderService.readAll();
 	}
 	
-	@GetMapping("/v1/{id}")
+	@GetMapping(value="/v1/{id}")
 	public Order find(@PathVariable int id) {
 		return orderService.find(id);
 	}
 	
-	@GetMapping("/v1/false")
+	@GetMapping(value="/v1/false")
 	public List<Order> notServedYet() {
 		return orderService.notServedYet();
 	}
 	
-	@GetMapping("/v1/recent")
-	public List<Order> recent(String userId) {
+	@GetMapping(value="/v1/recent/{userId}")
+	public List<Order> recent(@PathVariable String userId) {
 		return orderService.readRecent(userId);
 	}
 	
-	@PostMapping("/v1")
+	@PostMapping(value="/v1")
 	public ResponseEntity<?> save(@Valid @RequestBody Order order, BindingResult bindingResult) {
 		 if(bindingResult.hasErrors()){
             String errorMessage = bindingResult.getAllErrors().get(0).getDefaultMessage();
@@ -62,7 +63,7 @@ public class OrderController {
 		return  new ResponseEntity<>(orderService.save(order), HttpStatus.OK);
 	}
 	
-	@PutMapping("/v1/{id}")
+	@PutMapping(value="/v1/{id}")
 	public Integer update(@PathVariable int id) {
 		return orderService.served(id);
 	}

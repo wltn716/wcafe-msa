@@ -2,15 +2,11 @@ server:
   port: 8005
 
 spring:
-  profiles: dev
   application:
     name: wcafe-order
   cloud:
     config:
       uri: '${config.server:http://localhost:8888/}'
-      #http://211.62.49.103:8888/'
-      # username: ${config.server.username:admin}
-      # password: ${config.server.password:admin1234}
       name: common-config, eureka-config
 
 

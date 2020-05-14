@@ -14,8 +14,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class Account implements UserDetails {
+public class Account implements UserDetails{
 	
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private String password;
 	private Collection <? extends GrantedAuthority> authorities;

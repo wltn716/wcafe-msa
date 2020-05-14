@@ -15,28 +15,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.js.wcafeWeb.config.ClientConfig;
 import com.js.wcafeWeb.dto.Order;
 
-@FeignClient(name = "Order", url = "${feign.order-api.url}",configuration=ClientConfig.class)
+@FeignClient(name = "Order", url = "${feign.order-api.url}", configuration=ClientConfig.class)
 public interface OrderClient {
 
-	//@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-	//@GetMapping("/get/{id}")
-	
-	@GetMapping("/v1")
+	@GetMapping(value = "/v1")
     List<Order> getAllOrders();
 
-    @GetMapping("/v1/{id}")
+    @GetMapping(value= "/v1/{id}")
     Order getOrder(@PathVariable("id") int id);
     
-    @GetMapping("/v1/false")
+    @GetMapping(value= "/v1/false")
     List<Order> getNotServedYet();
     
-    @GetMapping("/v1/recent")
-    List<Order> recent(String userId);
+    @GetMapping(value= "/v1/recent/{userId}")
+    List<Order> recent(@PathVariable("userId") String userId);
 
-    @PostMapping("/v1")
+    @PostMapping(value= "/v1")
     ResponseEntity<?> saveOrder(@Valid @RequestBody Order order);
 
-    @PutMapping("/v1/{id}")
+    @PutMapping(value= "/v1/{id}")
     Integer updateOrderStatus(@PathVariable("id") int id);
 
 }
