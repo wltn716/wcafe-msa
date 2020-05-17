@@ -10538,3 +10538,583 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2333)
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:509)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+!SESSION 2020-05-15 12:04:11.511 -----------------------------------------------
+eclipse.buildId=4.5.1.202001211336-RELEASE
+java.version=1.8.0_242
+java.vendor=Azul Systems, Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.jface 2 0 2020-05-15 12:04:24.893
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-05-15 12:04:24.894
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4ebb7bab,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@33845e3d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2020-05-15 12:04:26.904
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2020-05-15 12:04:26.904
+!MESSAGE Could not load repository template extension contributed by 'org.eclipse.mylyn.bugzilla.ide' with connectorKind 'bugzilla'
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:36.896
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:36.897
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@776ae580[org.springframework.tooling.boot.ls:1.15.0.202003180840(id=876)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:36.907
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:36.959
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:43.701
+!MESSAGE Boot LS startup time from start to initialized: 6770ms
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-05-15 12:04:45.711
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\kth'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.127
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.siXFBiNnisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.128
+!MESSAGE Sorting projects...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.132
+!MESSAGE Creating project sorter...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.135
+!MESSAGE Creating project sorter... DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.137
+!MESSAGE Sorting projects... DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.138
+!MESSAGE inside synchronized Subscriptions
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.140
+!MESSAGE subscribing to classpath changes: sts4.classpath.siXFBiNn isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.144
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.150
+!MESSAGE subsribers = {sts4.classpath.siXFBiNn=Send Classpath Notifications(88)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.152
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.154
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.155
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.siXFBiNn => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.161
+!MESSAGE Preparing classpath changed notification wcafe-api-gateway
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.168
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.307
+!MESSAGE classpath=198 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.395
+!MESSAGE buffering callback sts4.classpath.siXFBiNn wcafe-api-gateway false 198
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.396
+!MESSAGE Preparing classpath changed notification practice
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.398
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.457
+!MESSAGE classpath=86 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.541
+!MESSAGE buffering callback sts4.classpath.siXFBiNn practice false 86
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.549
+!MESSAGE Preparing classpath changed notification wcafe
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.552
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:47.787
+!MESSAGE classpath=137 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.085
+!MESSAGE buffering callback sts4.classpath.siXFBiNn wcafe false 137
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.093
+!MESSAGE Preparing classpath changed notification wcafe-config-server
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.095
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.323
+!MESSAGE classpath=176 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.390
+!MESSAGE buffering callback sts4.classpath.siXFBiNn wcafe-config-server false 176
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.391
+!MESSAGE Preparing classpath changed notification wcafe-eureka-server
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.393
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.467
+!MESSAGE classpath=191 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.533
+!MESSAGE buffering callback sts4.classpath.siXFBiNn wcafe-eureka-server false 191
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.534
+!MESSAGE Preparing classpath changed notification wcafe-order
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.537
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.626
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.684
+!MESSAGE buffering callback sts4.classpath.siXFBiNn wcafe-order false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.686
+!MESSAGE Preparing classpath changed notification wcafe-product
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.688
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.750
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.826
+!MESSAGE buffering callback sts4.classpath.siXFBiNn wcafe-product false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.828
+!MESSAGE Preparing classpath changed notification wcafe-user
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.829
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:48.941
+!MESSAGE classpath=182 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:49.053
+!MESSAGE buffering callback sts4.classpath.siXFBiNn wcafe-user false 182
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:49.055
+!MESSAGE Preparing classpath changed notification wcafe-web
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:49.056
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:49.129
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:49.189
+!MESSAGE buffering callback sts4.classpath.siXFBiNn wcafe-web false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:49.191
+!MESSAGE executing callback sts4.classpath.siXFBiNn 9 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:04:49.631
+!MESSAGE executing callback sts4.classpath.siXFBiNn SUCCESS [done]
+
+!ENTRY org.springframework.ide.eclipse.beans.core 1 0 2020-05-15 12:04:59.799
+!MESSAGE Error occured processing 'com.js.wcafeApiGateway.WcafeApiGatewayApplication'
+!STACK 0
+org.springframework.core.annotation.AnnotationConfigurationException: Attribute 'proxyBeanMethods' in annotation [org.springframework.boot.SpringBootConfiguration] is declared as an @AliasFor nonexistent attribute 'proxyBeanMethods' in annotation [org.springframework.context.annotation.Configuration].; nested exception is java.lang.NoSuchMethodException: org.springframework.context.annotation.Configuration.proxyBeanMethods()
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2128)
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.from(AnnotationUtils.java:2095)
+	at org.springframework.core.annotation.AnnotationUtils.getAttributeAliasNames(AnnotationUtils.java:1751)
+	at org.springframework.core.annotation.AnnotationUtils.isSynthesizable(AnnotationUtils.java:1710)
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotation(AnnotationUtils.java:1493)
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotationArray(AnnotationUtils.java:1597)
+	at org.springframework.core.annotation.AnnotationUtils.getAnnotations(AnnotationUtils.java:231)
+	at org.springframework.core.type.classreading.AnnotationAttributesReadingVisitor.visitEnd(AnnotationAttributesReadingVisitor.java:76)
+	at org.springframework.asm.ClassReader.readAnnotationValues(ClassReader.java:2020)
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:676)
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:527)
+	at org.springframework.ide.eclipse.core.java.classreading.JdtConnectedMetadataReader.<init>(JdtConnectedMetadataReader.java:45)
+	at org.springframework.ide.eclipse.core.java.classreading.JdtMetadataReaderFactory.getMetadataReader(JdtMetadataReaderFactory.java:53)
+	at org.springframework.ide.eclipse.core.java.classreading.CachingJdtMetadataReaderFactory.getMetadataReader(CachingJdtMetadataReaderFactory.java:38)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.registerBean(BeansJavaConfig.java:368)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:229)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NoSuchMethodException: org.springframework.context.annotation.Configuration.proxyBeanMethods()
+	at java.lang.Class.getDeclaredMethod(Class.java:2130)
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2121)
+	... 22 more
+
+!ENTRY org.springframework.ide.eclipse.beans.core 1 0 2020-05-15 12:05:02.405
+!MESSAGE Error occured processing 'com.js.wcafeConfigServer.WcafeConfigServerApplication'
+!STACK 0
+org.springframework.core.annotation.AnnotationConfigurationException: Attribute 'proxyBeanMethods' in annotation [org.springframework.boot.SpringBootConfiguration] is declared as an @AliasFor nonexistent attribute 'proxyBeanMethods' in annotation [org.springframework.context.annotation.Configuration].; nested exception is java.lang.NoSuchMethodException: org.springframework.context.annotation.Configuration.proxyBeanMethods()
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2128)
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.from(AnnotationUtils.java:2095)
+	at org.springframework.core.annotation.AnnotationUtils.getAttributeAliasNames(AnnotationUtils.java:1751)
+	at org.springframework.core.annotation.AnnotationUtils.isSynthesizable(AnnotationUtils.java:1710)
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotation(AnnotationUtils.java:1493)
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotationArray(AnnotationUtils.java:1597)
+	at org.springframework.core.annotation.AnnotationUtils.getAnnotations(AnnotationUtils.java:231)
+	at org.springframework.core.type.classreading.AnnotationAttributesReadingVisitor.visitEnd(AnnotationAttributesReadingVisitor.java:76)
+	at org.springframework.asm.ClassReader.readAnnotationValues(ClassReader.java:2020)
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:676)
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:527)
+	at org.springframework.ide.eclipse.core.java.classreading.JdtConnectedMetadataReader.<init>(JdtConnectedMetadataReader.java:45)
+	at org.springframework.ide.eclipse.core.java.classreading.JdtMetadataReaderFactory.getMetadataReader(JdtMetadataReaderFactory.java:53)
+	at org.springframework.ide.eclipse.core.java.classreading.CachingJdtMetadataReaderFactory.getMetadataReader(CachingJdtMetadataReaderFactory.java:38)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.registerBean(BeansJavaConfig.java:368)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:229)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NoSuchMethodException: org.springframework.context.annotation.Configuration.proxyBeanMethods()
+	at java.lang.Class.getDeclaredMethod(Class.java:2130)
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2121)
+	... 22 more
+
+!ENTRY org.springframework.ide.eclipse.beans.core 1 0 2020-05-15 12:05:03.535
+!MESSAGE Error occured processing 'com.js.wcafeOrder.WcafeOrderApplication'
+!STACK 0
+org.springframework.core.annotation.AnnotationConfigurationException: Attribute 'proxyBeanMethods' in annotation [org.springframework.boot.SpringBootConfiguration] is declared as an @AliasFor nonexistent attribute 'proxyBeanMethods' in annotation [org.springframework.context.annotation.Configuration].; nested exception is java.lang.NoSuchMethodException: org.springframework.context.annotation.Configuration.proxyBeanMethods()
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2128)
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.from(AnnotationUtils.java:2095)
+	at org.springframework.core.annotation.AnnotationUtils.getAttributeAliasNames(AnnotationUtils.java:1751)
+	at org.springframework.core.annotation.AnnotationUtils.isSynthesizable(AnnotationUtils.java:1710)
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotation(AnnotationUtils.java:1493)
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotationArray(AnnotationUtils.java:1597)
+	at org.springframework.core.annotation.AnnotationUtils.getAnnotations(AnnotationUtils.java:231)
+	at org.springframework.core.type.classreading.AnnotationAttributesReadingVisitor.visitEnd(AnnotationAttributesReadingVisitor.java:76)
+	at org.springframework.asm.ClassReader.readAnnotationValues(ClassReader.java:2020)
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:676)
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:527)
+	at org.springframework.ide.eclipse.core.java.classreading.JdtConnectedMetadataReader.<init>(JdtConnectedMetadataReader.java:45)
+	at org.springframework.ide.eclipse.core.java.classreading.JdtMetadataReaderFactory.getMetadataReader(JdtMetadataReaderFactory.java:53)
+	at org.springframework.ide.eclipse.core.java.classreading.CachingJdtMetadataReaderFactory.getMetadataReader(CachingJdtMetadataReaderFactory.java:38)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.registerBean(BeansJavaConfig.java:368)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:229)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NoSuchMethodException: org.springframework.context.annotation.Configuration.proxyBeanMethods()
+	at java.lang.Class.getDeclaredMethod(Class.java:2130)
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2121)
+	... 22 more
+
+!ENTRY org.springframework.ide.eclipse.beans.core 1 0 2020-05-15 12:05:04.441
+!MESSAGE Error occured processing 'com.js.wcafeUser.WcafeUserApplication'
+!STACK 0
+org.springframework.core.annotation.AnnotationConfigurationException: Attribute 'proxyBeanMethods' in annotation [org.springframework.boot.SpringBootConfiguration] is declared as an @AliasFor nonexistent attribute 'proxyBeanMethods' in annotation [org.springframework.context.annotation.Configuration].; nested exception is java.lang.NoSuchMethodException: org.springframework.context.annotation.Configuration.proxyBeanMethods()
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2128)
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.from(AnnotationUtils.java:2095)
+	at org.springframework.core.annotation.AnnotationUtils.getAttributeAliasNames(AnnotationUtils.java:1751)
+	at org.springframework.core.annotation.AnnotationUtils.isSynthesizable(AnnotationUtils.java:1710)
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotation(AnnotationUtils.java:1493)
+	at org.springframework.core.annotation.AnnotationUtils.synthesizeAnnotationArray(AnnotationUtils.java:1597)
+	at org.springframework.core.annotation.AnnotationUtils.getAnnotations(AnnotationUtils.java:231)
+	at org.springframework.core.type.classreading.AnnotationAttributesReadingVisitor.visitEnd(AnnotationAttributesReadingVisitor.java:76)
+	at org.springframework.asm.ClassReader.readAnnotationValues(ClassReader.java:2020)
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:676)
+	at org.springframework.asm.ClassReader.accept(ClassReader.java:527)
+	at org.springframework.ide.eclipse.core.java.classreading.JdtConnectedMetadataReader.<init>(JdtConnectedMetadataReader.java:45)
+	at org.springframework.ide.eclipse.core.java.classreading.JdtMetadataReaderFactory.getMetadataReader(JdtMetadataReaderFactory.java:53)
+	at org.springframework.ide.eclipse.core.java.classreading.CachingJdtMetadataReaderFactory.getMetadataReader(CachingJdtMetadataReaderFactory.java:38)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig.registerBean(BeansJavaConfig.java:368)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:229)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansJavaConfig$2.call(BeansJavaConfig.java:1)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NoSuchMethodException: org.springframework.context.annotation.Configuration.proxyBeanMethods()
+	at java.lang.Class.getDeclaredMethod(Class.java:2130)
+	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2121)
+	... 22 more
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:05:05.110
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.siXFBiNn
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:05:05.112
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.siXFBiNn
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:05:05.113
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:05:05.114
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.siXFBiNn => OK
+!SESSION 2020-05-15 12:05:37.663 -----------------------------------------------
+eclipse.buildId=4.5.1.202001211336-RELEASE
+java.version=1.8.0_242
+java.vendor=Azul Systems, Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.jface 2 0 2020-05-15 12:05:55.819
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-05-15 12:05:55.819
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@61555218,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1fcf73b9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2020-05-15 12:05:57.392
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2020-05-15 12:05:57.392
+!MESSAGE Could not load repository template extension contributed by 'org.eclipse.mylyn.bugzilla.ide' with connectorKind 'bugzilla'
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:05.877
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:05.879
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@33c6c4f[org.springframework.tooling.boot.ls:1.15.0.202003180840(id=876)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:05.884
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:05.942
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-05-15 12:06:12.329
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\kth'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:12.636
+!MESSAGE Boot LS startup time from start to initialized: 6729ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.822
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.aUIzxYKFisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.823
+!MESSAGE Sorting projects...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.837
+!MESSAGE Creating project sorter...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.847
+!MESSAGE Creating project sorter... DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.857
+!MESSAGE Sorting projects... DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.860
+!MESSAGE inside synchronized Subscriptions
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.865
+!MESSAGE subscribing to classpath changes: sts4.classpath.aUIzxYKF isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.895
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.908
+!MESSAGE subsribers = {sts4.classpath.aUIzxYKF=Send Classpath Notifications(98)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.911
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.914
+!MESSAGE Preparing classpath changed notification wcafe-api-gateway
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.918
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.920
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:14.924
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.aUIzxYKF => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.068
+!MESSAGE classpath=198 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.169
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe-api-gateway false 198
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.171
+!MESSAGE Preparing classpath changed notification practice
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.172
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.209
+!MESSAGE classpath=86 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.235
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF practice false 86
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.237
+!MESSAGE Preparing classpath changed notification wcafe
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.239
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.311
+!MESSAGE classpath=137 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.383
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe false 137
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.385
+!MESSAGE Preparing classpath changed notification wcafe-config-server
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.387
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.495
+!MESSAGE classpath=176 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.594
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe-config-server false 176
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.615
+!MESSAGE Preparing classpath changed notification wcafe-eureka-server
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.619
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.846
+!MESSAGE classpath=191 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.946
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe-eureka-server false 191
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.948
+!MESSAGE Preparing classpath changed notification wcafe-order
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:15.952
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.071
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.159
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe-order false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.160
+!MESSAGE Preparing classpath changed notification wcafe-product
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.163
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.252
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.313
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe-product false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.314
+!MESSAGE Preparing classpath changed notification wcafe-user
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.316
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.384
+!MESSAGE classpath=182 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.447
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe-user false 182
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.448
+!MESSAGE Preparing classpath changed notification wcafe-web
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.451
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.517
+!MESSAGE classpath=178 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.581
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe-web false 178
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:16.582
+!MESSAGE executing callback sts4.classpath.aUIzxYKF 9 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:06:17.803
+!MESSAGE executing callback sts4.classpath.aUIzxYKF SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:07:40.781
+!MESSAGE Preparing classpath changed notification wcafe-auth-server
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:07:40.783
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:07:40.808
+!MESSAGE classpath=67 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:07:40.821
+!MESSAGE buffering callback sts4.classpath.aUIzxYKF wcafe-auth-server false 67
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:07:40.822
+!MESSAGE executing callback sts4.classpath.aUIzxYKF 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:07:40.832
+!MESSAGE executing callback sts4.classpath.aUIzxYKF SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:08:30.553
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.aUIzxYKF
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:08:30.554
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.aUIzxYKF
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:08:30.554
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-05-15 12:08:30.555
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.aUIzxYKF => OK

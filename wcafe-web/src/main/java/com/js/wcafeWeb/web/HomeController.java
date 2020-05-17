@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.js.wcafeWeb.client.OrderClient;
 import com.js.wcafeWeb.client.ProductClient;
+import com.js.wcafeWeb.client.UserClient;
+import com.js.wcafeWeb.dto.Account;
 import com.js.wcafeWeb.dto.Detail;
 import com.js.wcafeWeb.dto.Order;
 import com.js.wcafeWeb.dto.Product;
@@ -18,6 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 	
 	@Autowired
+	private UserClient userClient;
+
+	@Autowired
     private OrderClient orderClient;
 	
 	@Autowired
@@ -27,6 +32,9 @@ public class HomeController {
     public ModelAndView index(ModelAndView mv) {
 		mv.setViewName("index");
 
+		Account currentUser = userClient.getCurrentUserInfo();
+
+		mv.addObject("currentUser",currentUser);
 		mv.addObject("categories", productClient.getMenu());
 		
 		int waitingBevN=0, waitingTime=0;
@@ -39,7 +47,7 @@ public class HomeController {
 			}
 		}
 		
-		List<Order> recent = orderClient.recent("helloworld");
+		List<Order> recent = orderClient.recent(currentUser.getId());
 		for(Order order : recent) {
 			for(Detail detail : order.getDetails()) {
 				detail.setProduct(productClient.find(detail.getProductId()));

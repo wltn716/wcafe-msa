@@ -73,8 +73,8 @@ public class AccountService implements UserDetailsService{
 		List<String> string_authorities = accountMapper.readAuthorities(id);
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>(); 
 		
-		for (String authority : string_authorities) { 
-			authorities.add(new SimpleGrantedAuthority(authority)); 
+		for (String authority : string_authorities) {
+			authorities.add(new SimpleGrantedAuthority(authority));
 		} 
 		
 		return authorities; 

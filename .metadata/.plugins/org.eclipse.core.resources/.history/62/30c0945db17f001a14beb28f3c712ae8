@@ -1,6 +1,0 @@
-package com.js.wcafeWeb.client;
-
-@FeignClient(name = "Order", url = "http://localhost:8080",configuration=UserClientConfig.class)
-public interface OrderClient {
-
-}

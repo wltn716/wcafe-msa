@@ -1,18 +1,56 @@
 package com.js.wcafeWeb.config;
 
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.oauth2.client.DefaultOAuth2ClientContext;
+import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordResourceDetails;
 
 import feign.Contract;
 import feign.Logger;
+import feign.RequestInterceptor;
 import feign.auth.BasicAuthRequestInterceptor;
 
 @Configuration
 public class ClientConfig {
+
+    @Value("${security.oauth2.client.access-token-uri}")
+    private String accessTokenUri;
+
+    @Value("${security.oauth2.client.user-authorization-uri}")
+    private String userAuthorizationUri;
+
+    @Value("${security.oauth2.client.client-id}")
+    private String clientID;
+
+    @Value("${security.oauth2.client.client-secret}")
+    private String clientSecret;
 	
 	@Bean
     Logger.Level feignLoggerLevel() {
         return Logger.Level.HEADERS;
+    }
+
+    @Bean
+    public RequestInterceptor requestInterceptor() {
+        return new OAuth2FeignRequestInterceptor(new DefaultOAuth2ClientContext(), resource());
+    }
+
+    private OAuth2ProtectedResourceDetails resource() {
+        final ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
+        details.setAccessTokenUri(accessTokenUri);
+        details.setClientId(clientID);
+        details.setClientSecret(clientSecret);
+        details.setScope(Arrays.asList("read"));
+        details.setUsername("admin");
+        details.setPassword("1234");
+
+        return details;
     }
 
     // @Bean

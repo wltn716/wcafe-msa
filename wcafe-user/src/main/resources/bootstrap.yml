@@ -1,0 +1,10 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: wcafe-user
+  cloud:
+    config:
+      uri: '${config.server:http://localhost:8888/}'
+      name: common-config, db-config, eureka-config, auth-config
