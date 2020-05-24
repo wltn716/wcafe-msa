@@ -19,39 +19,28 @@ import feign.auth.BasicAuthRequestInterceptor;
 @Configuration
 public class ClientConfig {
 
-    @Value("${security.oauth2.client.access-token-uri}")
-    private String accessTokenUri;
-
-    @Value("${security.oauth2.client.user-authorization-uri}")
-    private String userAuthorizationUri;
-
-    @Value("${security.oauth2.client.client-id}")
-    private String clientID;
-
-    @Value("${security.oauth2.client.client-secret}")
-    private String clientSecret;
-	
+    
 	@Bean
     Logger.Level feignLoggerLevel() {
         return Logger.Level.HEADERS;
     }
 
-    @Bean
-    public RequestInterceptor requestInterceptor() {
-        return new OAuth2FeignRequestInterceptor(new DefaultOAuth2ClientContext(), resource());
-    }
+    // @Bean
+    // public RequestInterceptor requestInterceptor() {
+    //     return new OAuth2FeignRequestInterceptor(new DefaultOAuth2ClientContext(), resource());
+    // }
 
-    private OAuth2ProtectedResourceDetails resource() {
-        final ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
-        details.setAccessTokenUri(accessTokenUri);
-        details.setClientId(clientID);
-        details.setClientSecret(clientSecret);
-        details.setScope(Arrays.asList("read"));
-        details.setUsername("admin");
-        details.setPassword("1234");
+    // private OAuth2ProtectedResourceDetails resource() {
+    //     final ResourceOwnerPasswordResourceDetails details = new ResourceOwnerPasswordResourceDetails();
+    //     details.setAccessTokenUri(accessTokenUri);
+    //     details.setClientId(clientID);
+    //     details.setClientSecret(clientSecret);
+    //     details.setScope(Arrays.asList("read"));
+    //     details.setUsername("admin");
+    //     details.setPassword("1234");
 
-        return details;
-    }
+    //     return details;
+    // }
 
     // @Bean
     // public Contract feignContract() {

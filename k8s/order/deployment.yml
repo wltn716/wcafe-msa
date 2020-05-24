@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: config
+  name: order
 spec:
-  replicas: 1
+  replicas: 2
   minReadySeconds: 30
   strategy:
     type: RollingUpdate
@@ -12,35 +12,41 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: config
+      app: order
   template:
     metadata:
       labels:
-        app: config
+        app: order
     spec:
       containers:
-      - name: config
-        image: wltn716/to-config-server:latest
+      - name: order
+        image: wltn716/to-order
         env:
+        - name: EUREKA_CLUSTER_SERVICES
+          valueFrom:
+            configMapKeyRef:
+              name: eureka-cluster-config
+              key: eureka_cluster_services
         - name: HTTPD_PORT
-          value: "8888"
+          value: "8005"
+        - name: JAVA_OPTS
+          value: "-Dspring.profiles.active=dev -Ddatabase.name=order -Dconfig.server=http://config:8888 -Dservice.name=order"
         resources:
           requests:
             cpu: "150m"
             memory: "128Mi"
         imagePullPolicy: Always # IfNotPresent
         ports:
-        - containerPort: 8888
+        - containerPort: 8005
         livenessProbe:
           httpGet:
             path: /actuator/health
-            port: 8888
+            port: 8005
           initialDelaySeconds: 30
           timeoutSeconds: 5
         readinessProbe:
           httpGet:
             path: /actuator/health
-            port: 8888
+            port: 8005
           initialDelaySeconds: 30
           timeoutSeconds: 5
-

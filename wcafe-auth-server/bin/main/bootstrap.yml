@@ -1,11 +1,11 @@
 server:
   port: 8095
 
-# logging:
-#   level:
-#     org:
-#       springframework:
-#         security: DEBUG
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
 spring:
   application:
     name: wcafe-auth-server

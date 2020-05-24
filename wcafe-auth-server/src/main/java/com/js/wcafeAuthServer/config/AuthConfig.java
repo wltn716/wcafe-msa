@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,13 +20,14 @@ import org.springframework.security.oauth2.provider.client.JdbcClientDetailsServ
 
 @Configuration
 @EnableAuthorizationServer
+@SpringBootApplication
 public class AuthConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private ClientDetailsService clientDetailsService;
 
     @Autowired
-    @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
+    
 
     @Autowired
     private ResourceServerProperties resourceServerProperties;
@@ -53,6 +55,7 @@ public class AuthConfig extends AuthorizationServerConfigurerAdapter {
         // Jdbc(H2 데이터베이스)를 이용한 Oauth client 정보등록을 위한 설정입니다.
         return new JdbcClientDetailsService(dataSource);
     }
+
 
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
