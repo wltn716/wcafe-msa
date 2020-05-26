@@ -38,18 +38,19 @@ var action = {
 			};
 
 			console.log(order);
-				
+			
+			var orderurl = $("#orderurl").text();
 			
 			$.ajax({
 				type: 'POST',
-				url: '/api/order/v1',
+				url: orderurl+'/v1',
 				dataType:'json',
 				contentType: 'application/json; charset=utf-8',
 				data: JSON.stringify(order)
 				
 			}).done(function() {
 				alert('주문이 완료되었습니다.');
-				window.location.href="/web/";
+				window.location.href="/";
 			}).fail(function (error) {
 				alert(JSON.stringify(error));
 			});

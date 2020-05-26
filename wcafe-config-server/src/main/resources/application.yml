@@ -6,6 +6,7 @@ spring:
       server:
         git:
           uri: 'https://github.com/wltn716/msa.git'
+        default-label: nonauth
 
 server:
   port: 8888
