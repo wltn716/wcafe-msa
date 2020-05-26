@@ -1,6 +1,5 @@
 {
     "configurations": [
-        
         {
             "type": "java",
             "name": "CodeLens (Launch) - WcafeOrderApplication",
@@ -35,6 +34,16 @@
             "console": "internalConsole",
             "mainClass": "com.js.wcafeWeb.WcafeWebApplication",
             "projectName": "wcafe-web",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-WcafeConfigServerApplication<wcafe-config-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.js.wcafeConfigServer.WcafeConfigServerApplication",
+            "projectName": "wcafe-config-server",
             "args": ""
         }
     ]
