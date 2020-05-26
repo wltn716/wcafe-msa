@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: config
 spec:
-  replicas: 1
+  replicas: 2
   minReadySeconds: 30
   strategy:
     type: RollingUpdate
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: config
-        image: wltn716/to-config-server:latest
+        image: wltn716/to-config-server
         env:
         - name: HTTPD_PORT
           value: "8888"
