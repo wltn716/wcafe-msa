@@ -23,7 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        System.out.println("asdfsdfda;dfj;saljf;ljkdjd;faslkfjsal;j;asjfda;fja;dj;fsljklfjsaljfd;");
         http
             .authorizeRequests()
             .antMatchers("/login").permitAll()
@@ -42,9 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception
-    {
-        // static 디렉터리의 하위 파일 목록은 인증 무시 ( = 항상통과 )
+    public void configure(WebSecurity web) throws Exception{
+        // security 규칙을 무시하는 요청들!!!
         web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**");
     }
 
