@@ -1,5 +1,0 @@
-package com.js.wcafeWeb.client;
-
-public interface OrderClient {
-
-}

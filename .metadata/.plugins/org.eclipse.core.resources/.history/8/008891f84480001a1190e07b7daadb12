@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-encoding//src/main/resources/template/layout/footer.mustache=UTF-8
-encoding//src/main/resources/template/layout/nav-bar.mustache=UTF-8
-encoding//src/main/resources/templates/index.mustache=UTF-8
-encoding//src/main/resources/templates/layout/idx/menuList.mustache=UTF-8
-encoding//src/main/resources/templates/layout/idx/orderListModal.mustache=UTF-8
-encoding//src/main/resources/templates/layout/idx/userInfo.mustache=UTF-8
-encoding/<project>=UTF-8
