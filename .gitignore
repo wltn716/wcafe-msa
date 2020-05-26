@@ -1,5 +1,7 @@
-/.metadata/
-/.vscode/
+.metadata/
+.vscode/
+msa/
+*.code-workspace
 
 # Compiled class file
 *.class
