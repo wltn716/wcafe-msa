@@ -1,5 +1,5 @@
 .metadata/
 .vscode/
 msa/
-term-project.code-workspace
+*.code-workspace
 ../bin/..
