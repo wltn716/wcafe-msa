@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception
     {
-        // static 디렉터리의 하위 파일 목록은 인증 무시 ( = 항상통과 )
+        // security 정책을 무시하는 경로들
         web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**");
     }
 
