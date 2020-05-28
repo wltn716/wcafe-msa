@@ -35,17 +35,6 @@ public class LifecycleConfiguration implements InitializingBean, DisposableBean 
     @Value("${feign.order-api.url}")
     private String orderApiUrl;
 
-    @Value("${security.oauth2.client.access-token-uri}")
-    private String accessTokenUri;
-
-    @Value("${security.oauth2.client.user-authorization-uri}")
-    private String userAuthorizationUri;
-
-    @Value("${security.oauth2.client.client-id}")
-    private String clientID;
-
-    @Value("${security.oauth2.client.client-secret}")
-    private String clientSecret;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -58,10 +47,6 @@ public class LifecycleConfiguration implements InitializingBean, DisposableBean 
             sb.append("| Spring user Api url            | ").append(userApiUrl).append("\n");
             sb.append("| Spring product Api url         | ").append(productApiUrl).append("\n");
             sb.append("| Spring order Api url           | ").append(orderApiUrl).append("\n");
-            sb.append("| Access Token Uri               | ").append(accessTokenUri).append("\n");
-            sb.append("| User Authorization Uri         | ").append(userAuthorizationUri).append("\n");
-            sb.append("| Client Id                      | ").append(clientID).append("\n");
-            sb.append("| Client Secretb                 | ").append(clientSecret).append("\n");
             sb.append("+--------------------------------+---------------------------------------").append("\n");
             
             log.info("YAML Info...\n{}", sb.toString());
