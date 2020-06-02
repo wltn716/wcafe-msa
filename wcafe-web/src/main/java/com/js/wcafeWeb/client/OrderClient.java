@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.js.wcafeWeb.config.ClientConfig;
+import com.js.wcafeWeb.config.FeignClientConfig;
 import com.js.wcafeWeb.dto.Order;
 
-@FeignClient(name = "Order", url = "${feign.order-api.url}", configuration=ClientConfig.class)
+@FeignClient(name = "Order", url = "${feign.order-api.url}", configuration=FeignClientConfig.class)
 public interface OrderClient {
 
 	@GetMapping(value = "/v1")

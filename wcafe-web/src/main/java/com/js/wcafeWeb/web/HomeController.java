@@ -4,13 +4,16 @@ import java.util.List;
 
 import com.js.wcafeWeb.client.OrderClient;
 import com.js.wcafeWeb.client.ProductClient;
-import com.js.wcafeWeb.client.UserClient;
 import com.js.wcafeWeb.dto.Account;
 import com.js.wcafeWeb.dto.Detail;
 import com.js.wcafeWeb.dto.Order;
 import com.js.wcafeWeb.dto.Product;
+import com.js.wcafeWeb.service.AccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,8 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class HomeController {
 	
-	@Autowired
-	private UserClient userClient;
 
 	@Autowired
     private OrderClient orderClient;
@@ -28,12 +29,18 @@ public class HomeController {
 	@Autowired
 	private ProductClient productClient;
 
+	@Autowired
+	private AccountService accountService;
+
+	@Autowired
+	Environment env;
+
 	@GetMapping("/")
-    public ModelAndView index(ModelAndView mv) {
+    public ModelAndView index(ModelAndView mv, Authentication authentication) {
 		mv.setViewName("index");
 
-		Account currentUser = userClient.getCurrentUserInfo();
-
+		UserDetails currentUser = (UserDetails) authentication.getPrincipal();
+	
 		mv.addObject("currentUser",currentUser);
 		mv.addObject("categories", productClient.getMenu());
 		
@@ -47,7 +54,7 @@ public class HomeController {
 			}
 		}
 		
-		List<Order> recent = orderClient.recent(currentUser.getId());
+		List<Order> recent = orderClient.recent(currentUser.getUsername());
 		for(Order order : recent) {
 			for(Detail detail : order.getDetails()) {
 				detail.setProduct(productClient.find(detail.getProductId()));
@@ -57,6 +64,8 @@ public class HomeController {
 		mv.addObject("waitingBevN",waitingBevN);
 		mv.addObject("waitingTime",waitingTime);
 		
+		mv.addObject("orderurl", env.getProperty("feign.order-api.url"));
+
 		return mv;
     }
 	
@@ -71,6 +80,20 @@ public class HomeController {
 		}
 		
 		mv.addObject("orders",orders);
+		mv.addObject("orderurl", env.getProperty("feign.order-api.url"));
+
 		return mv;
 	}
+
+	@GetMapping("/create")
+    public Account create(){
+
+        Account account = new Account();     
+        account.setId("hello");
+        account.setPassword("wowow");
+        account.setName("유저2");
+		accountService.save(account, "ROLE_USER");
+
+        return (Account) accountService.loadUserByUsername(account.getId());
+    }
 }

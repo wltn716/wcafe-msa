@@ -36,13 +36,16 @@ var action = {
 					price: parseInt($('#totalCost').text()),
 					details: details
 			};
-
-			console.log(order);
-				
+			
+			var jwt= $("#jwt").text();
+			var orderUrl= $("#orderurl").text();
 			
 			$.ajax({
 				type: 'POST',
-				url: '/api/order/v1',
+				url: orderUrl+'/v1',
+				beforeSend: function (xhr) {
+					xhr.setRequestHeader('Authorization', 'Bearer '+jwt);
+				},
 				dataType:'json',
 				contentType: 'application/json; charset=utf-8',
 				data: JSON.stringify(order)

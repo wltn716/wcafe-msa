@@ -9,7 +9,7 @@ spring:
   cloud:
     config:
       uri: '${config.server:http://localhost:8888/}'
-      name: eureka-config, feign-config, auth-config
+      name: eureka-config, feign-config, db-config, common-config
 
 logging:
   level:

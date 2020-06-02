@@ -33,6 +33,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AccountService accountService;
 
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        // authenticationManage 빈 등록 
+        return super.authenticationManagerBean();
+    }
+
     @Override
     public void configure(AuthenticationManagerBuilder builder)
     throws Exception {

@@ -55,6 +55,7 @@ public class ClientController {
         client.setRegisteredRedirectUri(new HashSet<>(Arrays.asList(clientDetails.getRedirectUri())));
         client.setClientType(ClientType.PUBLIC);
         client.setClientId(UUID.randomUUID().toString());
+        client.setAuthorizedGrantTypes(Arrays.asList("authorization_code","password","client_credentials","implicit","refresh_token"));
         client.setClientSecret("{noop}"+UUID.randomUUID().toString());
         client.setAccessTokenValiditySeconds(3600);
         client.setScope(Arrays.asList("read","write"));

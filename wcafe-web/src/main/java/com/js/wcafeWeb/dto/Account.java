@@ -1,25 +1,48 @@
 package com.js.wcafeWeb.dto;
 
-import lombok.Builder;
+import java.time.LocalDateTime;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Account {
-
+@RequiredArgsConstructor
+public class Account implements UserDetails {
+	
+	/**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private String id;
-    private String name;
-
-    @Builder
-    public Account(String id, String name){
-        this.id = id;
-        this.name =name;
-    }
-
-    @Override
+	private String password;
+	private Collection <? extends GrantedAuthority> authorities;
+	private boolean enabled;
+	private boolean accountNonExpired;
+	private boolean accountNonLocked;
+	private boolean credentialsNonExpired;
+	private String access_token;
+	private LocalDateTime access_token_validity;
+	private String refresh_token;
+	
+	private String name;
+	private LocalDateTime createdAt;
+	private LocalDateTime expiredAt;
+	
+	@Override
+	public String getUsername() {
+		return this.id;
+	}
+	
+	@Override
 	public String toString(){
 	    return new com.google.gson.Gson().toJson(this);
 	}
-    
+	
+	
 }

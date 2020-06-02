@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -25,6 +26,8 @@ public class AuthConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired private DataSource dataSource;
     @Autowired private ClientDetailsService clientDetailsService;
     @Autowired private UserDetailsService userDetailsService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
     
         
     /*
@@ -51,6 +54,7 @@ public class AuthConfig extends AuthorizationServerConfigurerAdapter {
             .approvalStore(approvalStore()) //리소스 소유자의 승인을 추가, 검색, 취소하기 위한 메소드를 정의
             .tokenStore(tokenStore()) //토큰과 관련된 인증 데이터를 저장, 검색, 제거, 읽기를 정의
             .accessTokenConverter(accessTokenConverter())
+            .authenticationManager(authenticationManager)
             ;
     }
     

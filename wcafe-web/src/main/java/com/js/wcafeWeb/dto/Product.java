@@ -2,8 +2,6 @@ package com.js.wcafeWeb.dto;
 
 import java.util.List;
 
-import com.js.wcafeWeb.dto.Option;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
