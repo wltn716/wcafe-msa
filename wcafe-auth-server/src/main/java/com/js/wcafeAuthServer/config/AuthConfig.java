@@ -3,67 +3,85 @@ package com.js.wcafeAuthServer.config;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.ClientRegistrationService;
+import org.springframework.security.oauth2.provider.approval.JdbcApprovalStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
+import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 
 @Configuration
 @EnableAuthorizationServer
-@SpringBootApplication
 public class AuthConfig extends AuthorizationServerConfigurerAdapter {
-    @Autowired
-    private ClientDetailsService clientDetailsService;
-
+    
+    @Autowired private DataSource dataSource;
+    @Autowired private ClientDetailsService clientDetailsService;
+    @Autowired private UserDetailsService userDetailsService;
     @Autowired
     private AuthenticationManager authenticationManager;
     
-
-    @Autowired
-    private ResourceServerProperties resourceServerProperties;
-
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints)
-    throws Exception {
-        // 인증 과정 endpoint에 대한 설정을 해줍니다. 
-        super.configure(endpoints);
-        endpoints
-        .accessTokenConverter(jwtAccessTokenConverter())
-        .authenticationManager(authenticationManager);
-
-    }
-
+        
+    /*
+     * Client에 대한 인증 처리를 위한 설정
+     * 1) In-Memory 설정 - 기본 구현체 InMemoryClientDetailsService(Map에 클라이언트를 저장)
+     * 2) JDBC 설정 - 기본 구현체 JdbcClientDetailsService(JdbcTemplate를 이용한 DB이용)
+     * 3) CleintDetailsService 설정
+     */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        // oauth_client_details 테이블에 등록된 사용자로 조회합니다.
+        /*
+         * Client를 DB에서 관리하기 위하여 DataSource 주입.
+         * UserDetailsService와 동일한 역할을 하는 객체이다.
+         */
         clients.withClientDetails(clientDetailsService);
     }
-
+    
+    
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints
+            .userDetailsService(userDetailsService) //refresh token 발급을 위해서는 UserDetailsService(AuthenticationManager authenticate()에서 사용)필요
+            .authorizationCodeServices(new JdbcAuthorizationCodeServices(dataSource)) //authorization code를 DB로 관리 코드 테이블의 authentication은 blob데이터타입으로..
+            .approvalStore(approvalStore()) //리소스 소유자의 승인을 추가, 검색, 취소하기 위한 메소드를 정의
+            .tokenStore(tokenStore()) //토큰과 관련된 인증 데이터를 저장, 검색, 제거, 읽기를 정의
+            .accessTokenConverter(accessTokenConverter())
+            .authenticationManager(authenticationManager)
+            ;
+    }
+    
     @Bean
-    @Primary
-    public JdbcClientDetailsService JdbcClientDetailsService(DataSource dataSource) {
-        // Jdbc(H2 데이터베이스)를 이용한 Oauth client 정보등록을 위한 설정입니다.
+    public JwtTokenStore tokenStore() {
+        return new JwtTokenStore(accessTokenConverter());
+    }
+    
+    @Bean
+    public JdbcApprovalStore approvalStore() {
+        return new JdbcApprovalStore(dataSource);
+    }
+    @Bean
+    public JwtAccessTokenConverter accessTokenConverter() {
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        converter.setSigningKey("non-prod-signature");
+        
+        return converter;
+    }
+    
+    /*
+     * 새로운 클라이언트 등록을 위한 빈
+     */
+    @Bean
+    public ClientRegistrationService clientRegistrationService() {
         return new JdbcClientDetailsService(dataSource);
     }
 
-
-    @Bean
-    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        // JWT key-value 방식을 사용하기 위한 설정입니다.
-        JwtAccessTokenConverter accessTokenConverter = new JwtAccessTokenConverter();
-        accessTokenConverter.setSigningKey(resourceServerProperties.getJwt().getKeyValue());
-
-        return accessTokenConverter;
-    }
     
 }

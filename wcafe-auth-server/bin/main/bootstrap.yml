@@ -12,4 +12,9 @@ spring:
   cloud:
     config:
       uri: '${config.server:http://localhost:8888/}'
-      name: common-config, db-config, eureka-config, auth-config
+      name: common-config, db-config, eureka-config
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    suffix: .html
+    cache: false

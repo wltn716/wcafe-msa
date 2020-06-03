@@ -30,7 +30,7 @@ spec:
         - name: HTTPD_PORT
           value: "8090"
         - name: JAVA_OPTS
-          value: "-Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF8 -Dclient.encoding.override=UTF-8 -Duser.timezone=GMT+09:00 -Dsun.java2d.opengl=false -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dspring.profiles.active=dev -Ddatabase.name=user -Dconfig.server=http://config:8888 -Dservice.name=zuul"
+          value: "-Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF8 -Dclient.encoding.override=UTF-8 -Duser.timezone=GMT+09:00 -Dsun.java2d.opengl=false -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dspring.profiles.active=dev -Dclient-host=web -Dconfig.server=http://config:8888 -Dservice.name=zuul"
         resources:
           requests:
             cpu: "150m"

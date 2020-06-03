@@ -10,11 +10,16 @@ var update = {
 		},
 		
 		updateStatus : function (_this) {
-			var orderId = $(_this).val();		
+			var orderId = $(_this).val();			
+			var jwt= $("#jwt").text();
+			var orderUrl= $("#orderurl").text();
 			
 			$.ajax({
 				type: 'PUT',
-				url: '/api/order/v1/'+orderId,
+				url: orderUrl+'/v1/'+orderId,
+				beforeSend: function (xhr) {
+					xhr.setRequestHeader('Authorization', 'Bearer '+jwt);
+				},
 				dataType:'json',
 				contentType: 'application/json; charset=utf-8',
 				

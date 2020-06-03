@@ -46,3 +46,14 @@ a{
 .HOT{
 	color: #dc3545;
 }
+
+.receipt p {
+	font-size:18px;
+}
+
+.datebox{
+	background-color: #999;
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 400;
+}

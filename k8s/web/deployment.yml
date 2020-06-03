@@ -30,7 +30,7 @@ spec:
         - name: HTTPD_PORT
           value: "8080"
         - name: JAVA_OPTS
-          value: "-Dspring.profiles.active=dev -Dconfig.server=http://config:8888 -Dapi.gateway.host=zuul -Dservice.name=web"
+          value: "-Dspring.profiles.active=dev -Dconfig.server=http://config:8888 -Dapi.gateway.host=zuul -Dservice.name=web -Doauth2.access.token.uri=http://auth:8095/oauth/token -Ddatabase.name=oauth2"
         resources:
           requests:
             cpu: "150m"

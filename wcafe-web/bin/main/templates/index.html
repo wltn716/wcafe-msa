@@ -1,5 +1,5 @@
-{{>layout/header}}
-{{>layout/nav-bar}}
+{{>layout/common/header}}
+{{>layout/common/nav-bar}}
 <div class="container">
 	<div class="row">
 		<div class="col-4 pr-4">
@@ -9,6 +9,8 @@
 			{{>layout/idx/menuList}}
 		</div>
 	</div>
+	<div id="orderurl" class="d-none">{{orderurl}}</div>
+	<div id="jwt" class="d-none">{{jwt}}</div>
 </div>
 {{>layout/idx/orderListModal}}
-{{>layout/footer}}
+{{>layout/common/footer}}

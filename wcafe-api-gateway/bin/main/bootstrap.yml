@@ -7,4 +7,4 @@ spring:
   cloud:
     config:
       uri: '${config.server:http://localhost:8888/}'
-      name: common-config, eureka-config, zuul-config, auth-config
+      name: common-config, eureka-config, zuul-config

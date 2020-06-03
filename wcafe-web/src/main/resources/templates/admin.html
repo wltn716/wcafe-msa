@@ -1,4 +1,4 @@
-{{>layout/header}}
+{{>layout/common/header}}
 <div class="container">
 {{#orders}}
 	<div>
@@ -21,5 +21,7 @@
 		</div>
 	</div>
 {{/orders}}
+<div id="orderurl" class="d-none">{{orderurl}}</div>
+<div id="jwt" class="d-none">{{jwt}}</div>
 </div>
-{{>layout/footer}}
+{{>layout/common/footer}}

@@ -18,15 +18,13 @@ import com.js.wcafeOrder.dto.Option;
 public interface OrderMapper {
 	
 	/*get order info*/
-	Order readOrder(int id);
-	List<Order> readAll();
-	List<Order> readRecent(@Param("userId") String userId, @Param("time") int time, @Param("unit") String unit);
-	List<Order> notServedYet();
+	Order findById(int id);
+	List<Order> all();
+	List<Order> notServed();
 	
-	List<Order> readUserOrders(String id);
-	List<Order> readUserOrdersWhen(@Param("id") String id, @Param("time") int time, @Param("unit") String unit);
-	List<Order> readuserOrdersMonth(String id);
-	
+	List<Order> byUser(String userId);
+	List<Order> createdBetweenByUser(@Param("userId") String userId, @Param("begin") String begin, @Param("end") String end);
+		
 	Type readType(int id);
 	Option readOption(int id);
 	

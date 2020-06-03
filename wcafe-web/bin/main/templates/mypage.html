@@ -1,0 +1,19 @@
+{{>layout/common/header}}
+{{>layout/common/nav-bar}}
+<div class="container mb-5">
+	<h1>{{ currentUser.name }}님의</h1>
+	<h1 class="mb-5">마이페이지</h1>
+	<div class="receipt">
+		<h3 class="mb-3">주문 내역</h3>
+		<input type="text" name="daterange" value="" />
+		<div class="mt-3" id="history">
+		</div>
+		<hr/>
+		<div class="d-flex">
+			<p>총 금액</p>
+			<h3 class="ml-auto" id="price">₩</h3>
+		</div>
+	</div>
+</div>
+<div class="d-none" id="orders">{{orders}}</div>
+{{>layout/common/footer}}
