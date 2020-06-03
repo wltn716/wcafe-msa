@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: auth
 spec:
   replicas: 2
   minReadySeconds: 30
@@ -12,15 +12,15 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: web
+      app: auth
   template:
     metadata:
       labels:
-        app: web
+        app: auth
     spec:
       containers:
-      - name: web
-        image: wltn716/to-web
+      - name: auth
+        image: wltn716/to-auth-server
         env:
         - name: EUREKA_CLUSTER_SERVICES
           valueFrom:
@@ -28,25 +28,25 @@ spec:
               name: eureka-cluster-config
               key: eureka_cluster_services
         - name: HTTPD_PORT
-          value: "8080"
+          value: "8090"
         - name: JAVA_OPTS
-          value: "-Dspring.profiles.active=dev -Dconfig.server=http://config:8888 -Dapi.gateway.host=zuul -Dservice.name=web -Doauth2.access.token.uri=http://auth:8095/oauth/token -Ddatabase.name=oauth2"
+          value: "-Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF8 -Dclient.encoding.override=UTF-8 -Duser.timezone=GMT+09:00 -Dsun.java2d.opengl=false -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dspring.profiles.active=dev -Ddatabase.name=oauth2 -Dconfig.server=http://config:8888 -Dservice.name=auth"
         resources:
           requests:
             cpu: "150m"
             memory: "128Mi"
         imagePullPolicy: Always # IfNotPresent
         ports:
-        - containerPort: 8080
+        - containerPort: 8090
         livenessProbe:
           httpGet:
             path: /actuator/health
-            port: 8080
+            port: 8090
           initialDelaySeconds: 30
           timeoutSeconds: 5
         readinessProbe:
           httpGet:
             path: /actuator/health
-            port: 8080
+            port: 8090
           initialDelaySeconds: 30
           timeoutSeconds: 5

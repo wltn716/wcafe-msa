@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
 
 import feign.Logger;
-import feign.RequestInterceptor;
 
 @Configuration
 public class FeignClientConfig {
@@ -26,6 +25,12 @@ public class FeignClientConfig {
     
     @Value("${oauth2-access-token-uri}")
     private String accessTokenUri;
+
+    @Value("${oauth2-client-id}")
+    private String clientId;
+
+    @Value("${oauth2-client-secret}")
+    private String clientSecret;
 
 	@Bean
     Logger.Level feignLoggerLevel() {
@@ -38,8 +43,8 @@ public class FeignClientConfig {
 		
 		resourceDetails.setId("resource");
 		resourceDetails.setTokenName("oauth_token");
-		resourceDetails.setClientId("2e9f6889-1d2d-4829-aa18-f5ad962a1e69");
-		resourceDetails.setClientSecret("b74f2ff9-edf2-4b0d-b397-5e20be0cd781");
+		resourceDetails.setClientId(clientId);
+		resourceDetails.setClientSecret(clientSecret);
 		resourceDetails.setAccessTokenUri(accessTokenUri);
         resourceDetails.setScope(Arrays.asList("read","write"));
         resourceDetails.setUsername("admin");
