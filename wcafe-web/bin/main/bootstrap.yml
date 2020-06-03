@@ -9,10 +9,16 @@ spring:
   cloud:
     config:
       uri: '${config.server:http://localhost:8888/}'
-      name: eureka-config, feign-config, db-config, common-config
+      name: eureka-config, client-config, db-config, common-config
 
 logging:
   level:
     org:
       springframework:
         security: DEBUG
+    com:
+      js:
+        wcafeWeb:
+          client:
+            ProductClient: DEBUG
+            OrderClient: DEBUG

@@ -1,11 +1,12 @@
 package com.js.wcafeOrder.web;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,12 +46,21 @@ public class OrderController {
 	
 	@GetMapping(value="/v1/false")
 	public List<Order> notServedYet() {
-		return orderService.notServedYet();
+		return orderService.notServed();
+	}
+
+	@GetMapping(value="/v1/user/{userId}")
+	public List<Order> user(@PathVariable String userId) {
+		return orderService.byUser(userId);
 	}
 	
 	@GetMapping(value="/v1/recent/{userId}")
 	public List<Order> recent(@PathVariable String userId) {
-		return orderService.readRecent(userId);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Calendar begin = Calendar.getInstance();
+        begin.add(Calendar.MINUTE,-15);
+		Calendar end = Calendar.getInstance();
+		return orderService.createdBetweenByUser(userId, sdf.format(begin.getTime()), sdf.format(end.getTime()));
 	}
 	
 	@PostMapping(value="/v1")
@@ -60,7 +70,7 @@ public class OrderController {
             return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
         }
 		 
-		return  new ResponseEntity<>(orderService.save(order), HttpStatus.OK);
+		return new ResponseEntity<>(orderService.save(order), HttpStatus.OK);
 	}
 	
 	@PutMapping(value="/v1/{id}")

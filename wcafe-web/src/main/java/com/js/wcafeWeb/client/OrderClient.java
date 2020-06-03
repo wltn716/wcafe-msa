@@ -26,6 +26,9 @@ public interface OrderClient {
     
     @GetMapping(value= "/v1/false")
     List<Order> getNotServedYet();
+
+    @GetMapping(value= "/v1/user/{userId}")
+    List<Order> user(@PathVariable("userId") String userId);
     
     @GetMapping(value= "/v1/recent/{userId}")
     List<Order> recent(@PathVariable("userId") String userId);

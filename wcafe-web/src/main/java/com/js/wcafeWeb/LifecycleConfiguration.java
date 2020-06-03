@@ -35,6 +35,9 @@ public class LifecycleConfiguration implements InitializingBean, DisposableBean 
     @Value("${feign.order-api.url}")
     private String orderApiUrl;
 
+    @Value("${oauth2-access-token-uri}")
+    private String accessTokenUri;
+
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -47,6 +50,7 @@ public class LifecycleConfiguration implements InitializingBean, DisposableBean 
             sb.append("| Spring user Api url            | ").append(userApiUrl).append("\n");
             sb.append("| Spring product Api url         | ").append(productApiUrl).append("\n");
             sb.append("| Spring order Api url           | ").append(orderApiUrl).append("\n");
+            sb.append("| Access Token Uri               | ").append(accessTokenUri).append("\n");
             sb.append("+--------------------------------+---------------------------------------").append("\n");
             
             log.info("YAML Info...\n{}", sb.toString());

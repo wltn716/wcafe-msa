@@ -1,5 +1,7 @@
 package com.js.wcafeOrder.service;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -36,41 +38,28 @@ public class OrderService {
 	
 	@Transactional
 	public List<Order> readAll() {
-		return orderMapper.readAll();
+		return orderMapper.all();
 	}
 	
 	@Transactional
-	public List<Order> readRecent(String userId) {
-		return orderMapper.readRecent(userId, 15, "MINUTE");
+	public List<Order> byUser(String userId){
+		return orderMapper.byUser(userId);
+	}
+
+	@Transactional
+	public List<Order> createdBetweenByUser(String userId, String begin, String end) {
+		return orderMapper.createdBetweenByUser(userId, begin, end);
 	}
 	
 	@Transactional
 	public Order find(int orderId) {
-		return orderMapper.readOrder(orderId);
+		return orderMapper.findById(orderId);
 	}
-	
 	
 	@Transactional
-	public List<Order> notServedYet() {
-		return orderMapper.notServedYet();
+	public List<Order> notServed() {
+		return orderMapper.notServed();
 	}
-	
-	
-	
-	
-	@Transactional
-	public List<Order> findByUserId(String userId) {
-		return orderMapper.readUserOrders(userId);
-	}
-	@Transactional
-	public List<Order> findByUserIdWhen(String userId) {
-		return orderMapper.readUserOrdersWhen(userId, 15, "MINUTE");
-	}
-	@Transactional
-	public List<Order> findByUserIdMonth(String userId) {
-		return orderMapper.readuserOrdersMonth(userId);
-	}
-	
 	
 	@Transactional
 	public Type findType(int id) {

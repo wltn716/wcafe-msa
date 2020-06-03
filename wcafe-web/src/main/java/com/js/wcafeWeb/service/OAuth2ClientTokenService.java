@@ -11,7 +11,6 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.ClientTokenServices;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
@@ -51,12 +50,10 @@ public class OAuth2ClientTokenService implements ClientTokenServices {
 			OAuth2AccessToken accessToken) {
 		log.info("OAuth2ClientTokenService.saveAccessToken ::::");
 		Date expiration = accessToken.getExpiration();
-		
 		Account findUser = (Account) getUser(authentication);
 		findUser.setAccess_token(accessToken.getValue());
 		findUser.setAccess_token_validity(LocalDateTime.ofInstant(expiration.toInstant(), ZoneId.systemDefault()));
 		findUser.setRefresh_token(accessToken.getRefreshToken().getValue());
-		
 		accountMapper.setTokenInfo(findUser);
 	}
 

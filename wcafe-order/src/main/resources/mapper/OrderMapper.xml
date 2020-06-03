@@ -54,36 +54,26 @@
 		on d.orderId = o.id
 	</sql>
 	
-	<select id="readOrder" parameterType="int" resultMap="orderResultMap">
+	<select id="findById" parameterType="int" resultMap="orderResultMap">
 		<include refid="selectOrder"/>
 		where o.id = #{id}
 	</select>
-	<select id="readAll" resultMap="orderResultMap">
+	<select id="all" resultMap="orderResultMap">
 		<include refid="selectOrder"/>
-	</select>	
-	<select id="readRecent" resultMap="orderResultMap">
-		<include refid="selectOrder"/>
-		where userId=#{userId} and createdAt >= NOW() - INTERVAL #{time} ${unit}
 	</select>
-	<select id="notServedYet" parameterType="int" resultMap="orderResultMap">
+	<select id="notServed" parameterType="int" resultMap="orderResultMap">
 		<include refid="selectOrder"/>
 		WHERE o.validate = true;
 	</select>
-	
-	<select id="readUserOrders" resultMap="orderResultMap">
+		
+	<select id="byUser" parameterType="String" resultMap="orderResultMap">
 		<include refid="selectOrder"/>
-		where o.userId = #{id}
+		where o.userId = #{userId}
 	</select>
-	<select id="readUserOrdersWhen" resultMap="orderResultMap">
+	<select id="createdBetweenByUser" resultMap="orderResultMap">
 		<include refid="selectOrder"/>
-		where createdAt >= NOW() - INTERVAL #{time} ${unit} AND o.userId=#{id}
+		where o.userId=#{userId} and o.createdAt between #{begin} and #{end}
 	</select>
-	<select id="readUserOrdersMonth" resultMap="orderResultMap">
-		<include refid="selectOrder"/>
-		WHERE MONTH(createdAt) = MONTH(CURRENT_DATE())
-		AND YEAR(createdAt) = YEAR(CURRENT_DATE())
-		AND o.userId=#{id}
-	</select>	
 	
 	<select id="readType" parameterType="int" resultType="Type">
 		select * from `type`

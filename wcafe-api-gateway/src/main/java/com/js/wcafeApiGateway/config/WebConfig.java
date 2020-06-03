@@ -15,7 +15,6 @@ public class WebConfig {
 
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {
-        System.out.println(clientUrl+"\n");
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
