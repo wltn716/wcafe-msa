@@ -37,16 +37,16 @@ spec:
             memory: "128Mi"
         imagePullPolicy: Always # IfNotPresent
         ports:
-        - containerPort: 8090
+        - containerPort: 8095
         livenessProbe:
           httpGet:
             path: /actuator/health
-            port: 8090
+            port: 8095
           initialDelaySeconds: 30
           timeoutSeconds: 5
         readinessProbe:
           httpGet:
             path: /actuator/health
-            port: 8090
+            port: 8095
           initialDelaySeconds: 30
           timeoutSeconds: 5

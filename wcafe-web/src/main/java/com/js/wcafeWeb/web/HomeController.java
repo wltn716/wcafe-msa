@@ -1,10 +1,13 @@
 package com.js.wcafeWeb.web;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.js.wcafeWeb.client.OrderClient;
 import com.js.wcafeWeb.client.ProductClient;
 import com.js.wcafeWeb.dto.Account;
+import com.js.wcafeWeb.dto.Category;
 import com.js.wcafeWeb.dto.Detail;
 import com.js.wcafeWeb.dto.Order;
 import com.js.wcafeWeb.dto.Product;
@@ -33,9 +36,7 @@ public class HomeController {
 	private AccountService accountService;
 
 	@Autowired
-	private OAuth2FeignRequestInterceptor interceptor; 
-
-	
+	private OAuth2FeignRequestInterceptor interceptor; 	
 
 	@Autowired
 	Environment env;
@@ -44,7 +45,15 @@ public class HomeController {
     public ModelAndView index(ModelAndView mv, Authentication authentication) {
 		mv.setViewName("index");
 
-		mv.addObject("categories", productClient.getMenu());
+		List<Category> categories = productClient.getMenu();
+		List<Product> products = new ArrayList<Product>();
+		for(Category c : categories){
+			products.addAll(c.getProducts());
+		}
+
+		int firstProductId = products.get(0).getId();
+		
+		mv.addObject("categories", categories);
 
 		UserDetails currentUser = (UserDetails) authentication.getPrincipal();
 		mv.addObject("currentUser",currentUser);
@@ -54,8 +63,8 @@ public class HomeController {
 
 		for(Order order : orders) {
 			for(Detail detail : order.getDetails()) {
-				Product product = productClient.find(detail.getProductId());
-				waitingTime+=(product.getSeconds()*detail.getQuantity());
+				int productIdx = detail.getProductId()-firstProductId;
+				waitingTime+=(products.get(productIdx).getSeconds()*detail.getQuantity());
 				waitingBevN+=detail.getQuantity();
 			}
 		}
@@ -64,7 +73,7 @@ public class HomeController {
 
 		for(Order order : recent) {
 			for(Detail detail : order.getDetails()) {
-				detail.setProduct(productClient.find(detail.getProductId()));
+				detail.setProduct(products.get(detail.getProductId()-firstProductId));
 			}
 		}
 		mv.addObject("recent", recent);
