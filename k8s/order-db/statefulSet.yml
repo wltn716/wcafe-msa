@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: order-db
+spec:
+  serviceName: order-db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-db
+  template:
+    metadata:
+      labels:
+        app: order-db
+    spec:
+      containers:
+      - name: mysql
+        image: centos/mysql-80-centos7:8.0
+        imagePullPolicy: Always # IfNotPresent
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: asdf1234
+        - name: HTTPD_PORT
+          value: "3307"
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 3307
+
+# mysql 호스트네임 확인 명령어 : hostname -A
+# 접속 명령어 : mysql -h mysql-0.mysql.default.svc.cluster.local -u root -p

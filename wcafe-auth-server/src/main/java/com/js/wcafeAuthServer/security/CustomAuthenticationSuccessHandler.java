@@ -15,7 +15,6 @@ import lombok.extern.slf4j.Slf4j;
  * 로그인 성공시 행동을 재정의할 클래스(추상 클래스가 아닌 인터페이스를 구현해도 된다.) Or Interface -
  * AuthenticationSuccessHandler
  * 
- * @author yun-yeoseong
  *
  */
 @Slf4j

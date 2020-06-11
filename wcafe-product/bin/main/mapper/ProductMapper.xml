@@ -21,8 +21,8 @@
 		<id column='type_id' property="id"/>
 		<result column="type_name" property="name"/>
 	</resultMap>
-	
-	<select id="readProduct" parameterType="int" resultMap="productResultMap">
+
+	<sql id="selectProduct">
 		select 
 			p.id as product_id,
 			p.name as product_name,
@@ -43,6 +43,14 @@
  			productoption pop 
  			left outer join `option` op on pop.optionId=op.id
  		) on p.id=pop.productId 
+	</sql>
+
+	<select id="all" resultMap="productResultMap">
+		<include refid="selectProduct"/>
+	</select>
+	
+	<select id="readProduct" parameterType="int" resultMap="productResultMap">
+		<include refid="selectProduct"/>
 		where p.id=#{id}
 	</select>
 	<select id="readType" parameterType="int" resultType="Type">

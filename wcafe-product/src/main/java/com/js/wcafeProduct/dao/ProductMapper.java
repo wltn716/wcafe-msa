@@ -2,17 +2,18 @@ package com.js.wcafeProduct.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 import com.js.wcafeProduct.dto.Option;
 import com.js.wcafeProduct.dto.Product;
 import com.js.wcafeProduct.dto.Type;
 
-@Repository
 @Mapper
 public interface ProductMapper {
 	
 	/*get product info*/
+	List<Product> all();
 	Product readProduct(int id);
 	Type readType(int id);
 	Option readOption(int id);

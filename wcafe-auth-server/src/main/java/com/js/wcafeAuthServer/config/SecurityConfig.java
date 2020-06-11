@@ -131,13 +131,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public static PasswordEncoder passwordEncoder() {
-        // Spring5부터 PasswordEncoder 지정은 필수로 진행해주어야 합니다. 
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
     
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
-        // custom user인증 서비스를 사용하기위한 설정입니다. 
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(accountService);
         authenticationProvider.setPasswordEncoder(passwordEncoder());

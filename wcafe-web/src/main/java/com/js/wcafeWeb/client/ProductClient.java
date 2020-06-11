@@ -16,7 +16,10 @@ public interface ProductClient {
 	@GetMapping(value="/v1")
 	List<Category> getMenu();
 	
-	@GetMapping(value="/v1/{id}")
+	@GetMapping(value="/v1/products/{id}")
 	Product find(@PathVariable("id") int id);
+
+	@GetMapping(value="/v1/products")
+	List<Product> all();
 	
 }

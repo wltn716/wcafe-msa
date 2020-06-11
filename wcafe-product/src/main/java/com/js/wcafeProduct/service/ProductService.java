@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import com.js.wcafeProduct.dao.ProductMapper;
 import com.js.wcafeProduct.dto.Option;
 import com.js.wcafeProduct.dto.Product;
@@ -14,6 +16,11 @@ public class ProductService {
 	
 	@Autowired
 	ProductMapper productMapper;
+
+	@Transactional
+	public List<Product> all() {
+		return productMapper.all();
+	}
 	
 	@Transactional
 	public Product find(int id) {

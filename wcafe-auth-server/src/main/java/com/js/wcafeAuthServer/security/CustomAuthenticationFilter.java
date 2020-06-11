@@ -15,7 +15,6 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * Form 로그인 인증을 담당하는 Filter이다.
- * @author yun-yeoseong
  *
  */
 @Slf4j

@@ -11,9 +11,6 @@ import com.js.wcafeOrder.dto.Type;
 import com.js.wcafeOrder.dto.Detail;
 import com.js.wcafeOrder.dto.Option;
 
-
-
-@Repository
 @Mapper
 public interface OrderMapper {
 	

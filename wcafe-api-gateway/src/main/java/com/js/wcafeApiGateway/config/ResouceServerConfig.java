@@ -37,7 +37,6 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter{
             .authorizeRequests()
             .anyRequest().authenticated()
             .and()
-            //OAuth2.0 토큰 인증을 받아야하는 요청들 규칙정리
             .requestMatchers().antMatchers("/**")
         ;
     }
@@ -46,8 +45,6 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter{
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
         resources
             .tokenStore(tokenStore())
-//            .tokenExtractor(new BearerTokenExtractor())
-//            .authenticationManager(new OAuth2AuthenticationManager())
             .authenticationEntryPoint(new AuthenticationEntryPoint() { //토큰이 유효하지 않을 때
                 @Override
                 public void commence(HttpServletRequest request, HttpServletResponse response,

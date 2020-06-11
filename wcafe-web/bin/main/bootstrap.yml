@@ -15,10 +15,12 @@ logging:
   level:
     org:
       springframework:
-        security: DEBUG
+        security:
+          oauth2: DEBUG
     com:
       js:
         wcafeWeb:
           client:
             ProductClient: DEBUG
             OrderClient: DEBUG
+

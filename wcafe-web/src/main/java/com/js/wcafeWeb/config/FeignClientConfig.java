@@ -50,7 +50,6 @@ public class FeignClientConfig {
         resourceDetails.setUsername("admin");
         resourceDetails.setPassword("1234");
 		resourceDetails.setClientAuthenticationScheme(AuthenticationScheme.header);
-		
 		return resourceDetails;
     }
     

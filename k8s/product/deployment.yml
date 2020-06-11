@@ -30,7 +30,7 @@ spec:
         - name: HTTPD_PORT
           value: "8010"
         - name: JAVA_OPTS
-          value: "-Dspring.profiles.active=dev -Ddatabase.name=product -Dconfig.server=http://config:8888 -Dservice.name=product"
+          value: "-Dspring.profiles.active=dev -Ddatabase.name=product -Dconfig.server=http://config:8888 -Dservice.name=product -Dpackage.name=wcafeProduct"
         resources:
           requests:
             cpu: "150m"

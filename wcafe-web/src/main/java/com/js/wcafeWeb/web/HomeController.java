@@ -1,7 +1,6 @@
 package com.js.wcafeWeb.web;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import com.js.wcafeWeb.client.OrderClient;
@@ -44,7 +43,7 @@ public class HomeController {
 	@GetMapping("/")
     public ModelAndView index(ModelAndView mv, Authentication authentication) {
 		mv.setViewName("index");
-
+		
 		List<Category> categories = productClient.getMenu();
 		List<Product> products = new ArrayList<Product>();
 		for(Category c : categories){
@@ -90,9 +89,12 @@ public class HomeController {
 		mv.setViewName("mypage");
 		Account currentUser = (Account) authentication.getPrincipal();
 		List<Order> orders = orderClient.user(currentUser.getId());
+		List<Product> products = productClient.all();
+		int firstProductId = products.get(0).getId();
+
 		for(Order order : orders) {
 			for(Detail detail : order.getDetails()) {
-				detail.setProduct(productClient.find(detail.getProductId()));
+				detail.setProduct(products.get(detail.getProductId()-firstProductId));
 			}
 		}
 		mv.addObject("currentUser", currentUser);
@@ -102,12 +104,14 @@ public class HomeController {
 	}
 	
 	@GetMapping("/admin/management")
-	public ModelAndView admin(ModelAndView mv,Authentication authentication) {
+	public ModelAndView admin(ModelAndView mv, Authentication authentication) {
 		mv.setViewName("admin");
+		List<Product> products = productClient.all();
+		int firstProductId = products.get(0).getId();
 		List<Order> orders = orderClient.getNotServedYet();
 		for(Order order : orders) {
 			for(Detail detail : order.getDetails()) {
-				detail.setProduct(productClient.find(detail.getProductId()));
+				detail.setProduct(products.get(detail.getProductId()-firstProductId));
 			}
 		}
 		
@@ -125,9 +129,9 @@ public class HomeController {
     public Account create(){
 
         Account account = new Account();     
-        account.setId("user8");
+        account.setId("user10");
         account.setPassword("asdf");
-        account.setName("유저");
+        account.setName("유저10");
 		accountService.save(account, "ROLE_USER");
 
         return (Account) accountService.loadUserByUsername(account.getId());
