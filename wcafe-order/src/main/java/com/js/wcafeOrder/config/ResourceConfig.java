@@ -52,6 +52,7 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter{
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+            .antMatchers("/actuator/**").permitAll()
             .anyRequest().authenticated()
             .and()
             //OAuth2.0 토큰 인증을 받아야하는 요청들 규칙정리

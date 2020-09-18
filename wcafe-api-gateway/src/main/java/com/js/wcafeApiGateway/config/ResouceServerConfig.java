@@ -35,6 +35,7 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter{
         http
             .cors().and()
             .authorizeRequests()
+            .antMatchers("/actuator/**").permitAll()
             .anyRequest().authenticated()
             .and()
             .requestMatchers().antMatchers("/**")

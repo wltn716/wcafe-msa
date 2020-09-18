@@ -27,7 +27,7 @@ spec:
         - name: HTTPD_PORT
           value: "8761"
         - name: JAVA_OPTS
-          value: "-Dspring.profiles.active=dev"
+          value: "-Dspring.profiles.active=dev -Deureka.hostname=eureka"
         resources:
           requests:
             cpu: "150m"

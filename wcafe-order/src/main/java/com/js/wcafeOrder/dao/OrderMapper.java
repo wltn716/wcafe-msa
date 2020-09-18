@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
-
 import com.js.wcafeOrder.dto.Order;
 import com.js.wcafeOrder.dto.Type;
 import com.js.wcafeOrder.dto.Detail;
